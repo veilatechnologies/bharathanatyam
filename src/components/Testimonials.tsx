@@ -45,7 +45,7 @@ export default function Testimonials() {
                   <Star key={star} className="w-4 h-4 fill-foreground text-foreground transition-colors duration-500 group-hover:fill-gold group-hover:text-gold" />
                 ))}
               </div>
-              <p className="text-lg md:text-xl font-serif italic leading-relaxed mb-8 font-bold text-foreground">"{review.text}"</p>
+              <p className="text-lg md:text-xl font-serif italic leading-relaxed mb-8 font-bold text-foreground">&quot;{review.text}&quot;</p>
               <div className="mt-auto flex flex-col items-center">
                 <h4 className="text-sm md:text-base font-black uppercase tracking-[0.2em] font-sans mb-1 text-foreground">{review.name}</h4>
                 <span className="text-xs uppercase tracking-[0.1em] font-sans text-foreground/80 font-medium">{review.role}</span>

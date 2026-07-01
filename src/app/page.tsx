@@ -8,7 +8,6 @@ import ParallaxQuote from "@/components/ParallaxQuote";
 import GalleryOfGrace from "@/components/GalleryOfGrace";
 import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
-import Image from 'next/image';
 
 export default function Home() {
   return (

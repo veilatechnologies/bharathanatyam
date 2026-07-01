@@ -27,10 +27,10 @@ export default function ParallaxQuote() {
         >
           <div className="w-20 h-[3px] bg-foreground mb-10"></div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-foreground leading-[1.3] mb-8 font-bold italic">
-            "Dance is the hidden language of the soul.
+            &quot;Dance is the hidden language of the soul.
           </h2>
           <p className="text-lg md:text-2xl uppercase tracking-[0.2em] font-sans text-foreground/90 font-bold">
-            We merely provide the canvas."
+            We merely provide the canvas.&quot;
           </p>
         </motion.div>
 
