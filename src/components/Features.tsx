@@ -39,7 +39,17 @@ export default function Features() {
               className="group h-[320px] w-full [perspective:1000px]"
             >
               {/* Inner card with 3D transform */}
-              <div className="relative w-full h-full transition-transform duration-[800ms] [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+              <motion.div 
+                className="relative w-full h-full [transform-style:preserve-3d]"
+                initial={{ rotateY: 0 }}
+                whileInView={{ rotateY: 180 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ 
+                  duration: 1.5, 
+                  ease: "easeInOut",
+                  delay: 0.5 + (idx * 0.4)
+                }}
+              >
                 
                 {/* FRONT FACE */}
                 <div className="absolute inset-0 [backface-visibility:hidden] p-8 flex flex-col items-center justify-center text-center border border-foreground/10 rounded-2xl bg-white/20 backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
@@ -49,9 +59,7 @@ export default function Features() {
                   <h4 className="text-sm md:text-base font-bold uppercase tracking-[0.2em] font-sans text-foreground">
                     {feat.title}
                   </h4>
-                  <div className="mt-4 text-[10px] uppercase tracking-widest text-foreground/50 font-bold">
-                    Hover to Flip
-                  </div>
+                  {/* Hover hint removed since it's automatic */}
                 </div>
 
                 {/* BACK FACE */}
@@ -67,7 +75,7 @@ export default function Features() {
                   </p>
                 </div>
 
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </div>
