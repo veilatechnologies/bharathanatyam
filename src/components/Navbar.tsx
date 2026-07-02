@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
@@ -7,6 +7,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -69,7 +81,7 @@ export default function Navbar() {
               <X className="w-10 h-10 stroke-[1.5]" />
             </button>
 
-            <div className="flex flex-col items-center space-y-12">
+            <div className="flex flex-col items-center space-y-8 h-full justify-center">
               <Link 
                 href="/collections" 
                 onClick={() => setIsMobileMenuOpen(false)}
