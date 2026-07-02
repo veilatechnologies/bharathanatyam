@@ -22,7 +22,7 @@ export default function HandwovenHeritage() {
       >
         
         {/* Left Side: Elegant Text */}
-        <div className="w-full md:w-1/2 p-12 md:p-24 flex flex-col justify-center">
+        <div className="w-full md:w-1/2 p-8 md:p-12 lg:p-20 flex flex-col justify-center">
           <p className="text-sm md:text-base uppercase tracking-[0.3em] font-sans font-bold text-gold mb-6">
             Our Heritage
           </p>
@@ -30,12 +30,12 @@ export default function HandwovenHeritage() {
             The Weave of the Gods
           </h2>
           <p className="font-sans text-gold-light/90 leading-relaxed text-base md:text-xl font-medium mb-12">
-            Every thread carries a prayer. Our Kanjeevaram silks are handwoven by master weavers whose lineage traces back centuries. We source only authentic, pure zari fabrics directly from Kanchipuram, ensuring your performance radiates with the divine grace it deserves.
+            Every thread carries a prayer. Our costumes are tailored exclusively using semi silk and semi kanchipuram silk sarees. We source only the finest fabrics, ensuring your performance radiates with the divine grace it deserves while providing the flexibility needed for intricate movements.
           </p>
           
           <div>
-            <Link href="#" className="inline-flex items-center gap-4 text-gold hover:text-gold-light transition-colors group">
-              <span className="text-sm md:text-base uppercase tracking-[0.2em] font-bold font-sans">Discover the Loom</span>
+            <Link href="/about" className="inline-flex items-center gap-4 text-gold hover:text-gold-light transition-colors group">
+              <span className="uppercase tracking-[0.2em] font-bold text-xs md:text-sm">Read Our Story</span>
               <span className="w-12 h-[1px] bg-gold group-hover:w-20 transition-all duration-500"></span>
             </Link>
           </div>

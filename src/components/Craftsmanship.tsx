@@ -6,8 +6,8 @@ export default function Craftsmanship() {
   const steps = [
     {
       icon: <Scissors className="w-6 h-6 text-foreground" />,
-      title: "Silk Selection",
-      desc: "We source the finest, authentic Kanjeevaram silks straight from traditional looms."
+      title: "Fabric Selection",
+      desc: "We exclusively source semi silk and semi kanchipuram silk sarees for our costumes."
     },
     {
       icon: <Ruler className="w-6 h-6 text-foreground" />,
@@ -22,7 +22,7 @@ export default function Craftsmanship() {
     {
       icon: <CheckCircle className="w-6 h-6 text-foreground" />,
       title: "The Final Polish",
-      desc: "Rigorous quality checks before the silk ever touches the sacred stage."
+      desc: "Rigorous quality checks before the fabric ever touches the sacred stage."
     }
   ];
 

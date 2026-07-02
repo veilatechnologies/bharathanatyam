@@ -31,7 +31,7 @@ export default function GalleryOfGrace() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 border-[1px] border-white/10 m-3 rounded-sm">
               <h3 className="text-white font-serif text-2xl font-bold mb-2">The Golden Hour</h3>
-              <p className="text-gold font-sans text-xs uppercase tracking-[0.2em]">Traditional Silk</p>
+              <p className="text-gold font-sans text-xs uppercase tracking-[0.2em]">Semi Silk</p>
             </div>
           </motion.div>
 

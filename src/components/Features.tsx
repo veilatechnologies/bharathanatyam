@@ -11,7 +11,7 @@ export default function Features() {
     {
       icon: <Gem className="w-6 h-6" />,
       title: "Premium Fabrics",
-      desc: "Only the highest quality silks and cottons used for durability and luster."
+      desc: "Only the highest quality semi silk and semi kanchipuram silk sarees used for durability and luster."
     },
     {
       icon: <Sparkles className="w-6 h-6" />,
@@ -26,8 +26,8 @@ export default function Features() {
   ];
 
   return (
-    <section className="bg-background border-b border-foreground/20 relative z-10">
-      <div className="w-full">
+    <section className="bg-background border-b border-foreground/20 relative z-10 py-12 md:py-20">
+      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feat, idx) => (
             <motion.div 
@@ -45,9 +45,9 @@ export default function Features() {
                 whileInView={{ rotateY: 180 }}
                 viewport={{ once: true, amount: 0.5 }}
                 transition={{ 
-                  duration: 1.5, 
+                  duration: 0.8, 
                   ease: "easeInOut",
-                  delay: 0.5 + (idx * 0.4)
+                  delay: 0.2 + (idx * 0.2)
                 }}
               >
                 

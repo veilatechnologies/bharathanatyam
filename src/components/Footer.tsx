@@ -28,16 +28,16 @@ export default function Footer() {
 
         {/* Navigation Links */}
         <div className="flex flex-wrap justify-center gap-8 mb-16">
-          <Link href="#collection" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
-            The Collection
+          <Link href="/collections" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
+            Collections
           </Link>
-          <Link href="#" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
-            Our Heritage
+          <Link href="/about" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
+            About
           </Link>
-          <Link href="#" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
-            Custom Stitching
+          <Link href="/measurements" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
+            Measurements
           </Link>
-          <Link href="#" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
+          <Link href="/contact" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
             Contact
           </Link>
         </div>
@@ -48,9 +48,8 @@ export default function Footer() {
             &copy; 2026 Sri Sanjana. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="text-xs font-sans text-white/80 hover:text-white transition-colors font-bold">Instagram</Link>
+            <a href="https://www.instagram.com/sri_sanjana_beautyparlour/" target="_blank" rel="noopener noreferrer" className="text-xs font-sans text-white/80 hover:text-white transition-colors font-bold">Instagram</a>
             <Link href="#" className="text-xs font-sans text-white/80 hover:text-white transition-colors font-bold">Facebook</Link>
-            <Link href="#" className="text-xs font-sans text-white/80 hover:text-white transition-colors font-bold">Privacy Policy</Link>
           </div>
         </div>
 
