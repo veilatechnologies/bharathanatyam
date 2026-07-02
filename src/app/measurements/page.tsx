@@ -8,9 +8,9 @@ import Footer from "@/components/Footer";
 export default function MeasurementsPage() {
   return (
     <motion.main 
-      initial={{ opacity: 0, filter: 'blur(10px)' }}
-      animate={{ opacity: 1, filter: 'blur(0px)' }}
-      exit={{ opacity: 0, filter: 'blur(10px)' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ duration: 1.2, ease: "easeInOut" }}
       className="min-h-screen bg-background text-foreground selection:bg-gold selection:text-black overflow-hidden relative"
     >
