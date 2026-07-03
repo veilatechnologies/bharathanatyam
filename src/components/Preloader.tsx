@@ -16,10 +16,10 @@ export default function Preloader() {
       window.scrollTo(0, 0);
     }
 
-    // Wait 3 seconds to show the animation, then start fading out
-    const timer1 = setTimeout(() => setVisible(false), 3000);
+    // Wait 1.2 seconds to show the animation, then start fading out
+    const timer1 = setTimeout(() => setVisible(false), 1200);
     // Remove from DOM completely after fade out
-    const timer2 = setTimeout(() => setRendering(false), 4000);
+    const timer2 = setTimeout(() => setRendering(false), 1800);
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -56,7 +56,7 @@ export default function Preloader() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative w-40 h-40 md:w-56 md:h-56 mb-12 bg-white rounded-full p-6 md:p-8 shadow-2xl overflow-hidden"
         >
           <Image 
@@ -73,7 +73,7 @@ export default function Preloader() {
           <motion.span 
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="w-16 md:w-32 h-[2px] bg-gold origin-right"
           ></motion.span>
           
@@ -93,7 +93,7 @@ export default function Preloader() {
           <motion.span 
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="w-16 md:w-32 h-[2px] bg-gold origin-left"
           ></motion.span>
         </div>
@@ -103,7 +103,7 @@ export default function Preloader() {
           className="mt-8 text-gold uppercase tracking-[0.3em] text-sm md:text-base font-bold flex"
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 1.5 } }
+            visible: { opacity: 1, transition: { staggerChildren: 0.05, delayChildren: 0.8 } }
           }}
           initial="hidden"
           animate="visible"

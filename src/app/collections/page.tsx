@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowDown, ExternalLink } from 'lucide-react';
@@ -51,10 +52,6 @@ function CollectionsContent() {
 
   const handleOpenModel = (model: any) => {
     router.push(`?model=${model.id}`);
-  };
-
-  const handleCloseModel = () => {
-    router.push('/collections', { scroll: false });
   };
 
 
@@ -182,7 +179,7 @@ function CollectionsContent() {
             className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-start overflow-y-auto"
           >
             {/* Artistic Background Texture */}
-            <div className="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay">
+            <div className="fixed inset-0 pointer-events-none opacity-[0.02]">
               <Image src="/assets/kolam_pattern_1782842311451.png" alt="Kolam Texture" fill sizes="100vw" className="object-cover" />
             </div>
 
@@ -190,7 +187,7 @@ function CollectionsContent() {
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="w-full sticky top-0 z-20 bg-[#1a1500]/60 backdrop-blur-2xl border-b border-gold/30 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+              className="w-full sticky top-0 z-20 bg-[#1a1500]/90 backdrop-blur-md border-b border-gold/30 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
             >
               <div className="w-full max-w-[1400px] mx-auto px-6 py-4 md:py-6 flex justify-between items-center">
                 <div className="flex flex-col overflow-hidden">
@@ -203,17 +200,18 @@ function CollectionsContent() {
                     {selectedModel.title}
                   </motion.h2>
                 </div>
-                <motion.button 
-                  initial={{ x: 50, opacity: 0, rotate: -90 }}
-                  animate={{ x: 0, opacity: 1, rotate: 0 }}
-                  whileHover={{ scale: 1.1, rotate: 90, backgroundColor: "rgba(212, 175, 55, 0.2)" }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ duration: 0.5, delay: 0.3, ease: "backOut" }}
-                  onClick={handleCloseModel}
-                  className="p-2 hover:bg-gold/10 rounded-full transition-colors border border-transparent hover:border-gold/30"
-                >
-                  <X className="w-8 h-8 text-gold" />
-                </motion.button>
+                <Link href="/collections" scroll={false} passHref>
+                  <motion.button 
+                    initial={{ x: 50, opacity: 0, rotate: -90 }}
+                    animate={{ x: 0, opacity: 1, rotate: 0 }}
+                    whileHover={{ scale: 1.1, rotate: 90, backgroundColor: "rgba(212, 175, 55, 0.2)" }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ duration: 0.5, delay: 0.3, ease: "backOut" }}
+                    className="p-2 hover:bg-gold/10 rounded-full transition-colors border border-transparent hover:border-gold/30"
+                  >
+                    <X className="w-8 h-8 text-gold" />
+                  </motion.button>
+                </Link>
               </div>
             </motion.div>
 
