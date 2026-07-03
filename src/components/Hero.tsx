@@ -24,6 +24,7 @@ export default function Hero() {
             src="/assets/hero_bharatanatyam.png" 
             alt="Bharatanatyam Silk" 
             fill 
+            unoptimized
             sizes="100vw"
             className="object-cover object-[center_20%] hover:scale-105 transition-transform duration-[6s]" 
             priority 

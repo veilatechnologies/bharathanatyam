@@ -28,7 +28,7 @@ export default function ProductGallery() {
             >
               <div className="relative w-full aspect-[3/4] overflow-hidden mb-6 rounded-xl">
                 <div className="relative w-full h-full overflow-hidden">
-                  <Image src="/assets/collection1.jpeg" alt="Sun Pleated Pant Model" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain transition-transform duration-[2s] group-hover:scale-110" />
+                  <Image src="/assets/collection1.jpeg" alt="Sun Pleated Pant Model" fill unoptimized sizes="(max-width: 768px) 100vw, 50vw" className="object-contain transition-transform duration-[2s] group-hover:scale-110" />
                 </div>
               </div>
               <div className="text-center pb-2 relative overflow-hidden">

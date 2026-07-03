@@ -67,6 +67,7 @@ function CollectionsContent() {
             src="/assets/dancer_portrait.png" 
             alt="Bharatanatyam Dancer" 
             fill 
+            unoptimized
             className="object-cover object-top filter grayscale"
             priority
           />
@@ -146,6 +147,7 @@ function CollectionsContent() {
                     src={model.image} 
                     alt={model.title} 
                     fill 
+                    unoptimized
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-contain transition-transform duration-[2s] group-hover:scale-105" 
                   />
@@ -200,17 +202,17 @@ function CollectionsContent() {
                     {selectedModel.title}
                   </motion.h2>
                 </div>
-                <Link href="/collections" scroll={false} passHref>
-                  <motion.button 
+                <Link href="/collections" scroll={false} passHref className="flex items-center justify-center">
+                  <motion.div 
                     initial={{ x: 50, opacity: 0, rotate: -90 }}
                     animate={{ x: 0, opacity: 1, rotate: 0 }}
                     whileHover={{ scale: 1.1, rotate: 90, backgroundColor: "rgba(212, 175, 55, 0.2)" }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ duration: 0.5, delay: 0.3, ease: "backOut" }}
-                    className="p-2 hover:bg-gold/10 rounded-full transition-colors border border-transparent hover:border-gold/30"
+                    className="p-2 cursor-pointer hover:bg-gold/10 rounded-full transition-colors border border-transparent hover:border-gold/30"
                   >
                     <X className="w-8 h-8 text-gold" />
-                  </motion.button>
+                  </motion.div>
                 </Link>
               </div>
             </motion.div>
@@ -230,41 +232,40 @@ function CollectionsContent() {
                     key={dress.id} 
                     className="flex flex-col group"
                   >
-                    <div className="relative w-full aspect-[3/4] overflow-hidden mb-6 bg-foreground/5 rounded-sm shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-700 border border-gold/10 group-hover:border-gold/30">
+                    <div className="relative w-full aspect-[3/4] overflow-hidden mb-6 bg-foreground/5 rounded-sm shadow-md transition-transform duration-500 hover:-translate-y-1 border border-gold/10 hover:border-gold/30">
                       <motion.div
-                        initial={{ scale: 1.1, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.8, delay: 0.2 + (idx * 0.15), ease: "easeOut" }}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4, delay: 0.1 + (idx * 0.05) }}
                         className="w-full h-full relative z-10"
                       >
                         <Image 
                           src={dress.image} 
                           alt={dress.title} 
                           fill 
+                          unoptimized
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          className="object-contain transition-transform duration-[2s] group-hover:scale-110 p-2" 
+                          className="object-contain p-2" 
                         />
                       </motion.div>
                     </div>
-                    <div className="flex flex-col items-center text-center overflow-hidden">
+                    <div className="flex flex-col items-center text-center">
                       <motion.h4 
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3 + (idx * 0.15), duration: 0.6, ease: "easeOut" }}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 + (idx * 0.05), duration: 0.4 }}
                         className="font-serif text-xl md:text-2xl text-foreground mb-4 font-bold relative z-10"
                       >
                         {dress.title}
                       </motion.h4>
-                      <div className="w-8 h-[1px] bg-gold/50 mb-6 transition-all duration-500 group-hover:w-16"></div>
+                      <div className="w-8 h-[1px] bg-gold/50 mb-6"></div>
                       <motion.button 
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3 + (idx * 0.05), duration: 0.4 }}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.4 + (idx * 0.15), duration: 0.5 }}
-                        className="border border-foreground text-foreground hover:bg-foreground/10 text-[10px] uppercase tracking-[0.2em] font-sans font-bold px-8 py-3 transition-all duration-300 relative z-10"
+                        className="border border-foreground text-foreground hover:bg-foreground/10 text-[10px] uppercase tracking-[0.2em] font-sans font-bold px-8 py-3 transition-colors duration-300 relative z-10"
                       >
                         Enquire Now
                       </motion.button>
