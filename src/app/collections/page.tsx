@@ -31,15 +31,23 @@ function CollectionsContent() {
 
   // Sync selected model with URL
   const selectedModelId = searchParams.get('model');
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (selectedModelId) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [selectedModelId]);
+
   const selectedModel = selectedModelId 
     ? models.find(m => m.id.toString() === selectedModelId) 
     : null;
 
-
-
   // Lock body scroll when modal is open
   useEffect(() => {
-    if (selectedModel) {
+    if (isOpen && selectedModel) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -47,14 +55,17 @@ function CollectionsContent() {
     return () => {
       document.body.style.overflow = 'unset';
     };
-  }, [selectedModel]);
+  }, [isOpen, selectedModel]);
 
   const handleOpenModel = (model: any) => {
     router.push(`?model=${model.id}`);
   };
 
   const handleCloseModel = () => {
-    router.replace('/collections', { scroll: false });
+    setIsOpen(false);
+    setTimeout(() => {
+      router.replace('/collections', { scroll: false });
+    }, 300); // Wait for exit animation before updating URL
   };
 
 
@@ -175,7 +186,7 @@ function CollectionsContent() {
       </section>
 
       <AnimatePresence>
-        {selectedModel && (
+        {(isOpen && selectedModel) && (
           <motion.div
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
