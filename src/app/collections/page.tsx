@@ -58,14 +58,17 @@ function CollectionsContent() {
   }, [isOpen, selectedModel]);
 
   const handleOpenModel = (model: any) => {
-    router.push(`?model=${model.id}`);
+    if (typeof window !== 'undefined') {
+      window.history.pushState(null, '', `/collections?model=${model.id}`);
+    }
+    setIsOpen(true);
   };
 
   const handleCloseModel = () => {
     setIsOpen(false);
-    setTimeout(() => {
-      router.replace('/collections', { scroll: false });
-    }, 300); // Wait for exit animation before updating URL
+    if (typeof window !== 'undefined') {
+      window.history.pushState(null, '', '/collections');
+    }
   };
 
 
@@ -81,7 +84,6 @@ function CollectionsContent() {
             src="/assets/dancer_portrait.png" 
             alt="Bharatanatyam Dancer" 
             fill 
-            unoptimized
             className="object-cover object-top filter grayscale"
             priority
           />
@@ -194,63 +196,104 @@ function CollectionsContent() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-start overflow-y-auto"
           >
-            <div className="fixed inset-0 pointer-events-none bg-background"></div>
+            {/* Background for modal to match theme but with a blur over main page */}
+            <div className="fixed inset-0 pointer-events-none bg-background/90 backdrop-blur-3xl"></div>
 
             <motion.div 
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="w-full sticky top-0 z-20 bg-[#1a1500] border-b border-gold/30 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+              className="w-full sticky top-0 z-20 bg-[#2a111a] border-b border-gold/30 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
             >
               <div className="w-full max-w-[1400px] mx-auto px-6 py-4 md:py-6 flex justify-between items-center">
                 <div className="flex flex-col overflow-hidden">
+                  <motion.span 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    className="text-[10px] uppercase tracking-[0.3em] font-bold text-gold/70 mb-1"
+                  >
+                    The Atelier Collection
+                  </motion.span>
                   <motion.h2 
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
-                    className="font-serif text-2xl md:text-3xl text-gold"
+                    className="font-serif text-2xl md:text-4xl text-white font-bold tracking-wide"
                   >
                     {selectedModel.title}
                   </motion.h2>
                 </div>
-                <motion.button 
-                  initial={{ x: 50, opacity: 0, rotate: -90 }}
-                  animate={{ x: 0, opacity: 1, rotate: 0 }}
-                  whileHover={{ scale: 1.1, rotate: 90, backgroundColor: "rgba(212, 175, 55, 0.2)" }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ duration: 0.5, delay: 0.3, ease: "backOut" }}
+                <button 
                   onClick={handleCloseModel}
-                  className="p-2 cursor-pointer hover:bg-gold/10 rounded-full transition-colors border border-transparent hover:border-gold/30"
+                  className="p-2 cursor-pointer hover:bg-white/10 rounded-full transition-colors border border-transparent hover:border-white/30"
+                  aria-label="Close"
                 >
-                  <X className="w-8 h-8 text-gold" />
-                </motion.button>
+                  <X className="w-8 h-8 text-white" />
+                </button>
               </div>
             </motion.div>
 
             <div className="w-full max-w-[1400px] mx-auto p-6 md:p-12 pb-32">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
                 {selectedModel.dresses.map((dress: any, idx: number) => (
-                  <div key={dress.id} className="flex flex-col group">
-                    <div className="relative w-full aspect-[3/4] overflow-hidden mb-6 bg-foreground/5 rounded-sm shadow-md transition-transform duration-500 hover:-translate-y-1 border border-gold/10 hover:border-gold/30 z-10">
-                      <Image 
-                        src={dress.image} 
-                        alt={dress.title} 
-                        fill 
-                        unoptimized
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        className="object-contain p-2" 
-                      />
+                  <motion.div 
+                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "50px" }}
+                    transition={{ 
+                      duration: 0.7, 
+                      ease: "easeOut" 
+                    }}
+                    key={dress.id} 
+                    className="flex flex-col group p-4 hover:bg-gold/5 rounded-xl transition-colors duration-500"
+                  >
+                    <div className="relative w-full aspect-[3/4] overflow-hidden mb-6 glass-panel transition-transform duration-500 hover:-translate-y-2 z-10 hover:shadow-2xl">
+                      
+                      <motion.div
+                        initial={{ scale: 1.1 }}
+                        whileInView={{ scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.2, ease: "easeOut" }}
+                        className="w-full h-full"
+                      >
+                        <Image 
+                          src={dress.image} 
+                          alt={dress.title} 
+                          fill 
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-contain p-2 opacity-90 transition-all duration-700 group-hover:scale-105 group-hover:opacity-100" 
+                        />
+                      </motion.div>
                     </div>
                     <div className="flex flex-col items-center text-center">
-                      <h4 className="font-serif text-xl md:text-2xl text-foreground mb-4 font-bold relative z-10">
+                      <motion.h4 
+                        initial={{ opacity: 0, y: 15 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                        className="font-serif text-xl md:text-2xl text-foreground mb-4 font-bold relative z-10"
+                      >
                         {dress.title}
-                      </h4>
-                      <div className="w-8 h-[1px] bg-gold/50 mb-6"></div>
-                      <button className="border border-foreground text-foreground hover:bg-foreground/10 text-[10px] uppercase tracking-[0.2em] font-sans font-bold px-8 py-3 transition-colors duration-300 relative z-10">
+                      </motion.h4>
+                      <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: "2rem" }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="h-[1px] bg-foreground/20 mb-6 group-hover:w-12 transition-all duration-300"
+                      ></motion.div>
+                      <motion.button 
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="bg-[#5c1626] text-white text-[10px] uppercase tracking-[0.2em] font-sans font-bold px-8 py-3 rounded-full transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#5c1626]/30 relative z-10"
+                      >
                         Enquire Now
-                      </button>
+                      </motion.button>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
