@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowDown, ExternalLink } from 'lucide-react';
@@ -52,6 +51,10 @@ function CollectionsContent() {
 
   const handleOpenModel = (model: any) => {
     router.push(`?model=${model.id}`);
+  };
+
+  const handleCloseModel = () => {
+    router.replace('/collections', { scroll: false });
   };
 
 
@@ -199,18 +202,17 @@ function CollectionsContent() {
                     {selectedModel.title}
                   </motion.h2>
                 </div>
-                <Link href="/collections" scroll={false} passHref className="flex items-center justify-center">
-                  <motion.div 
-                    initial={{ x: 50, opacity: 0, rotate: -90 }}
-                    animate={{ x: 0, opacity: 1, rotate: 0 }}
-                    whileHover={{ scale: 1.1, rotate: 90, backgroundColor: "rgba(212, 175, 55, 0.2)" }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ duration: 0.5, delay: 0.3, ease: "backOut" }}
-                    className="p-2 cursor-pointer hover:bg-gold/10 rounded-full transition-colors border border-transparent hover:border-gold/30"
-                  >
-                    <X className="w-8 h-8 text-gold" />
-                  </motion.div>
-                </Link>
+                <motion.button 
+                  initial={{ x: 50, opacity: 0, rotate: -90 }}
+                  animate={{ x: 0, opacity: 1, rotate: 0 }}
+                  whileHover={{ scale: 1.1, rotate: 90, backgroundColor: "rgba(212, 175, 55, 0.2)" }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ duration: 0.5, delay: 0.3, ease: "backOut" }}
+                  onClick={handleCloseModel}
+                  className="p-2 cursor-pointer hover:bg-gold/10 rounded-full transition-colors border border-transparent hover:border-gold/30"
+                >
+                  <X className="w-8 h-8 text-gold" />
+                </motion.button>
               </div>
             </motion.div>
 
