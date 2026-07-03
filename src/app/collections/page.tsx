@@ -1,49 +1,63 @@
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { X, ArrowDown, ExternalLink } from 'lucide-react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowDown } from 'lucide-react';
 
-export default function CollectionsPage() {
-  const [activeFilter, setActiveFilter] = useState("All");
+function CollectionsContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-  const categories = [
-    "All", 
-    "Salangai Pooja", 
-    "Arangetram", 
-    "Performance", 
-    "Practice", 
-    "Portfolio", 
-    "Bala"
-  ];
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const params = new URLSearchParams(window.location.search);
-      const category = params.get('category');
-      if (category && categories.includes(category)) {
-        setActiveFilter(category);
-      }
+  const models = [
+    { 
+      id: 1, 
+      title: "Sun pleated Pant model with silk zari border", 
+      category: "Performance", 
+      image: "/assets/collection1.jpeg",
+      dresses: [
+        { id: 101, title: "Terracotta & Deep Purple with Gold Zari Border", image: "/assets/dress1.jpeg" },
+        { id: 102, title: "Crimson Red & Leaf Green with Gold Zari Border", image: "/assets/dress2.jpeg" },
+        { id: 103, title: "Pearl White & Soft Taupe with Gold Zari Border", image: "/assets/dress3.jpeg" },
+        { id: 104, title: "Magenta & Moss Green with Gold Zari Border", image: "/assets/dress4.jpeg" },
+        { id: 105, title: "Mustard Yellow & Navy Blue with Gold Zari Border", image: "/assets/dress5.jpeg" },
+        { id: 106, title: "Classic Maroon & Dark Violet with Gold Zari Border", image: "/assets/dress6.jpeg" },
+        { id: 107, title: "Deep Navy & Royal Blue with Gold Zari Border", image: "/assets/dress7.jpeg" }
+      ]
     }
-  }, []);
-
-  const products = [
-    { id: 1, title: "The Auspicious Start", category: "Salangai Pooja", image: "/assets/dress2.jpeg" },
-    { id: 2, title: "Golden Kanchipuram", category: "Arangetram", image: "/assets/dress5.jpeg" },
-    { id: 3, title: "Temple Border Silk", category: "Practice", image: "/assets/dress4.jpeg" },
-    { id: 4, title: "Divine Magenta", category: "Performance", image: "/assets/dress6.jpeg" },
-    { id: 5, title: "Studio Edit", category: "Portfolio", image: "/assets/dancer_portrait.png" },
-    { id: 6, title: "Dynamic Flow", category: "Performance", image: "/assets/dancer_dynamic.png" },
-    { id: 7, title: "Little Danseuse", category: "Bala", image: "/assets/bharatanatyam_dancer.png" },
-    { id: 8, title: "Classic Red", category: "Arangetram", image: "/assets/dress2.jpeg" },
-    { id: 9, title: "Emerald Green", category: "Practice", image: "/assets/dress5.jpeg" },
   ];
 
-  const filteredProducts = activeFilter === "All" 
-    ? products 
-    : products.filter(p => p.category === activeFilter);
+  // Sync selected model with URL
+  const selectedModelId = searchParams.get('model');
+  const selectedModel = selectedModelId 
+    ? models.find(m => m.id.toString() === selectedModelId) 
+    : null;
+
+
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedModel) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedModel]);
+
+  const handleOpenModel = (model: any) => {
+    router.push(`?model=${model.id}`);
+  };
+
+  const handleCloseModel = () => {
+    router.push('/collections', { scroll: false });
+  };
+
+
 
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-gold selection:text-black">
@@ -56,6 +70,7 @@ export default function CollectionsPage() {
             src="/assets/dancer_portrait.png" 
             alt="Bharatanatyam Dancer" 
             fill 
+            unoptimized
             className="object-cover object-top filter grayscale"
             priority
           />
@@ -63,20 +78,29 @@ export default function CollectionsPage() {
         </div>
         
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
-          className="relative z-10 text-center px-4 max-w-3xl"
+          className="absolute inset-0 flex flex-col items-center justify-center z-10"
         >
-          <span className="text-gold uppercase tracking-[0.4em] text-xs font-bold mb-4 block">
+          <motion.span 
+            initial={{ opacity: 0, letterSpacing: "0em" }}
+            animate={{ opacity: 1, letterSpacing: "0.4em" }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="text-gold uppercase text-xs font-bold mb-4 block"
+          >
             Sri Sanjana Atelier
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-8xl font-serif text-white tracking-[0.1em] font-bold uppercase mix-blend-difference mb-6">
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="text-4xl sm:text-5xl md:text-8xl font-serif text-white tracking-[0.1em] font-bold uppercase mix-blend-difference mb-6"
+          >
             The Collections
-          </h1>
+          </motion.h1>
         </motion.div>
 
-        {/* Explore Down Arrow */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -89,56 +113,59 @@ export default function CollectionsPage() {
         </motion.div>
       </section>
 
-      {/* Minimal Filter Navigation */}
-      <section className="w-full max-w-[1400px] mx-auto px-6 py-16">
-        <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`text-xs md:text-sm uppercase tracking-[0.2em] font-sans font-bold transition-all duration-300 pb-1 border-b-2 ${
-                activeFilter === cat 
-                  ? "border-foreground text-foreground" 
-                  : "border-transparent text-foreground/40 hover:text-foreground/80"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </section>
+      <motion.section 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="w-full max-w-[1600px] mx-auto px-6 md:px-12 pt-16 pb-12 flex flex-col items-center text-center"
+      >
+        <span className="text-xs uppercase tracking-[0.3em] font-sans font-bold text-foreground/50 mb-4">Discover the Authentic</span>
+        <h2 className="text-4xl md:text-6xl font-serif text-foreground font-bold tracking-tight">
+          Bharathanatyam Dance Costumes
+        </h2>
+        <motion.div 
+          initial={{ width: 0 }}
+          whileInView={{ width: "4rem" }}
+          transition={{ duration: 1, delay: 0.4, ease: "circOut" }}
+          className="h-[2px] bg-gold mt-8"
+        ></motion.div>
+      </motion.section>
 
-      {/* Ultra Clean Grid */}
       <section className="w-full max-w-[1600px] mx-auto px-6 md:px-12 pb-32 min-h-[50vh]">
         <motion.div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           <AnimatePresence mode="wait">
-            {filteredProducts.map((product) => (
+            {models.map((model, idx) => (
               <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.4 }}
-                key={product.id}
-                className="group flex flex-col"
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.8, delay: idx * 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+                key={model.id}
+                className="group flex flex-col cursor-pointer"
+                onClick={() => handleOpenModel(model)}
               >
-                <div className="relative w-full aspect-[3/4] overflow-hidden mb-6 bg-foreground/5 rounded-sm">
+                <div className="relative w-full aspect-[3/4] overflow-hidden mb-6 bg-foreground/5 rounded-sm shadow-md group-hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)] group-hover:-translate-y-2 transition-all duration-700">
                   <Image 
-                    src={product.image} 
-                    alt={product.title} 
+                    src={model.image} 
+                    alt={model.title} 
                     fill 
-                    className="object-cover transition-transform duration-[2s] group-hover:scale-105" 
+                    unoptimized
+                    className="object-contain transition-transform duration-[2s] group-hover:scale-105" 
                   />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white font-sans font-bold uppercase tracking-[0.2em] border border-white px-6 py-2 backdrop-blur-sm">
+                      View Collection
+                    </span>
+                  </div>
                 </div>
                 <div className="flex flex-col items-center text-center">
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-gold font-bold mb-2 block">
-                    {product.category}
-                  </span>
-                  <h3 className="font-serif text-2xl text-foreground mb-4">
-                    {product.title}
+                  <h3 className="font-serif text-2xl text-foreground mb-2">
+                    {model.title}
                   </h3>
-                  <button className="px-6 py-2 border border-foreground text-[10px] uppercase tracking-[0.2em] font-sans font-bold hover:bg-foreground hover:text-white transition-colors duration-300">
-                    Enquire Now
-                  </button>
+                  <p className="text-xs font-sans text-foreground/50 uppercase tracking-widest">
+                    {model.dresses.length} Dresses
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -146,7 +173,122 @@ export default function CollectionsPage() {
         </motion.div>
       </section>
 
+      <AnimatePresence>
+        {selectedModel && (
+          <motion.div
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.1, transition: { duration: 0.4 } }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[100] bg-background flex flex-col items-center justify-start overflow-y-auto"
+          >
+            {/* Artistic Background Texture */}
+            <div className="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay">
+              <Image src="/assets/kolam_pattern_1782842311451.png" alt="Kolam Texture" fill className="object-cover" />
+            </div>
+
+            <motion.div 
+              initial={{ y: -50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="w-full sticky top-0 z-20 bg-[#1a1500]/60 backdrop-blur-2xl border-b border-gold/30 shadow-[0_10px_40px_rgba(0,0,0,0.5)]"
+            >
+              <div className="w-full max-w-[1400px] mx-auto px-6 py-4 md:py-6 flex justify-between items-center">
+                <div className="flex flex-col overflow-hidden">
+                  <motion.h2 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="font-serif text-2xl md:text-3xl text-gold"
+                  >
+                    {selectedModel.title}
+                  </motion.h2>
+                </div>
+                <motion.button 
+                  initial={{ x: 50, opacity: 0, rotate: -90 }}
+                  animate={{ x: 0, opacity: 1, rotate: 0 }}
+                  whileHover={{ scale: 1.1, rotate: 90, backgroundColor: "rgba(212, 175, 55, 0.2)" }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ duration: 0.5, delay: 0.3, ease: "backOut" }}
+                  onClick={handleCloseModel}
+                  className="p-2 hover:bg-gold/10 rounded-full transition-colors border border-transparent hover:border-gold/30"
+                >
+                  <X className="w-8 h-8 text-gold" />
+                </motion.button>
+              </div>
+            </motion.div>
+
+            <div className="w-full max-w-[1400px] mx-auto p-6 md:p-12 pb-32">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
+                {selectedModel.dresses.map((dress: any, idx: number) => (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 50, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                    transition={{ 
+                      duration: 0.7, 
+                      delay: 0.1 + (idx * 0.15), 
+                      ease: [0.17, 0.55, 0.55, 1] 
+                    }}
+                    key={dress.id} 
+                    className="flex flex-col group"
+                  >
+                    <div className="relative w-full aspect-[3/4] overflow-hidden mb-6 bg-foreground/5 rounded-sm shadow-xl group-hover:shadow-2xl group-hover:-translate-y-2 transition-all duration-700 border border-gold/10 group-hover:border-gold/30">
+                      <motion.div
+                        initial={{ scale: 1.1, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.8, delay: 0.2 + (idx * 0.15), ease: "easeOut" }}
+                        className="w-full h-full relative z-10"
+                      >
+                        <Image 
+                          src={dress.image} 
+                          alt={dress.title} 
+                          fill 
+                          unoptimized
+                          className="object-contain transition-transform duration-[2s] group-hover:scale-110 p-2" 
+                        />
+                      </motion.div>
+                    </div>
+                    <div className="flex flex-col items-center text-center overflow-hidden">
+                      <motion.h4 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 + (idx * 0.15), duration: 0.6, ease: "easeOut" }}
+                        className="font-serif text-xl md:text-2xl text-foreground mb-4 font-bold relative z-10"
+                      >
+                        {dress.title}
+                      </motion.h4>
+                      <div className="w-8 h-[1px] bg-gold/50 mb-6 transition-all duration-500 group-hover:w-16"></div>
+                      <motion.button 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 + (idx * 0.15), duration: 0.5 }}
+                        className="border border-foreground text-foreground hover:bg-foreground/10 text-[10px] uppercase tracking-[0.2em] font-sans font-bold px-8 py-3 transition-all duration-300 relative z-10"
+                      >
+                        Enquire Now
+                      </motion.button>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <Footer />
     </main>
+  );
+}
+
+export default function CollectionsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background"></div>}>
+      <CollectionsContent />
+    </Suspense>
   );
 }
