@@ -149,6 +149,7 @@ function CollectionsContent() {
                     src={model.image} 
                     alt={model.title} 
                     fill 
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-contain transition-transform duration-[2s] group-hover:scale-105" 
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
@@ -182,7 +183,7 @@ function CollectionsContent() {
           >
             {/* Artistic Background Texture */}
             <div className="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay">
-              <Image src="/assets/kolam_pattern_1782842311451.png" alt="Kolam Texture" fill className="object-cover" />
+              <Image src="/assets/kolam_pattern_1782842311451.png" alt="Kolam Texture" fill sizes="100vw" className="object-cover" />
             </div>
 
             <motion.div 
@@ -242,6 +243,7 @@ function CollectionsContent() {
                           src={dress.image} 
                           alt={dress.title} 
                           fill 
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           className="object-contain transition-transform duration-[2s] group-hover:scale-110 p-2" 
                         />
                       </motion.div>
