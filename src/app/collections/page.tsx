@@ -70,7 +70,6 @@ function CollectionsContent() {
             src="/assets/dancer_portrait.png" 
             alt="Bharatanatyam Dancer" 
             fill 
-            unoptimized
             className="object-cover object-top filter grayscale"
             priority
           />
@@ -150,7 +149,6 @@ function CollectionsContent() {
                     src={model.image} 
                     alt={model.title} 
                     fill 
-                    unoptimized
                     className="object-contain transition-transform duration-[2s] group-hover:scale-105" 
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-center justify-center">
@@ -244,7 +242,6 @@ function CollectionsContent() {
                           src={dress.image} 
                           alt={dress.title} 
                           fill 
-                          unoptimized
                           className="object-contain transition-transform duration-[2s] group-hover:scale-110 p-2" 
                         />
                       </motion.div>
