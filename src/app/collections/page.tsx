@@ -297,6 +297,9 @@ function CollectionsContent() {
                 ))}
               </div>
             </div>
+            
+            {/* Footer inside the modal */}
+            <Footer />
           </motion.div>
         )}
       </AnimatePresence>
