@@ -60,8 +60,8 @@ export default function Features() {
                 transition={{ duration: 1.5, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="glass-panel p-8 flex flex-col items-center text-center h-full transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl bg-foreground [transform-style:preserve-3d]"
               >
-                <div className="w-20 h-20 bg-white rounded-full flex flex-col items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                  {React.cloneElement(pillar.icon as React.ReactElement, { className: 'w-10 h-10 text-foreground' })}
+                <div className="w-20 h-20 bg-white rounded-full flex flex-col items-center justify-center mb-6 shadow-xl relative z-20 group-hover:scale-110 transition-transform duration-500">
+                  {React.cloneElement(pillar.icon as React.ReactElement<any>, { className: 'w-10 h-10 text-foreground' })}
                 </div>
                 <h3 className="text-2xl font-serif text-white font-bold mb-2">{pillar.title}</h3>
                 <span className="text-xs uppercase tracking-[0.2em] font-sans text-white/80 font-bold mb-4 block">{pillar.subtitle}</span>
