@@ -68,8 +68,8 @@ const StyleRow = ({ styleData, index }: { styleData: Style; index: number }) => 
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut", originX: index % 2 === 0 ? 0 : 1 }}
-          className="w-12 h-[1px] bg-foreground/30 mb-8"
+          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          className={`w-12 h-[1px] bg-foreground/30 mb-8 ${index % 2 === 0 ? 'origin-left' : 'origin-right'}`}
         ></motion.div>
         <motion.p 
           initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}

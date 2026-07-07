@@ -30,8 +30,8 @@ export default function TattooHero() {
           <motion.div 
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.6, ease: "easeOut", originX: 0 }}
-            className="w-12 h-[1px] bg-foreground/30 mb-8"
+            transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+            className="w-12 h-[1px] bg-foreground/30 mb-8 origin-left"
           ></motion.div>
           <motion.p 
             initial={{ opacity: 0, x: -50 }}
