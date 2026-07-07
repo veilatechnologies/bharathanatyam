@@ -1,62 +1,111 @@
 "use client";
+import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Scissors, Ruler, Sparkles, CheckCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Craftsmanship() {
-  const steps = [
+  const features = [
     {
-      icon: <Scissors className="w-6 h-6 text-foreground" />,
-      title: "Fabric Selection",
-      desc: "We exclusively source semi silk and semi kanchipuram silk sarees for our costumes."
+      id: "01",
+      title: "Custom Tailoring & Designer Wear",
+      subtitle: "Bespoke Perfection",
+      description: "From impeccable Bharathanatyam attire to luxurious custom-made global outfits, our master tailors ensure every garment breathes, moves seamlessly, and fits flawlessly.",
+      image: "/assets/service_tailoring_1783356135602.png",
+      link: "/tailoring"
     },
     {
-      icon: <Ruler className="w-6 h-6 text-foreground" />,
-      title: "Divine Geometry",
-      desc: "Precise measurements ensure perfect pleat falls and complete freedom of movement."
+      id: "02",
+      title: "Tailoring Training Academy",
+      subtitle: "Empowering Next Generation",
+      description: "We are deeply committed to passing down our knowledge. Our affordable training programs—available both offline at our Virudhunagar center and online—empower learners everywhere to master the art of tailoring.",
+      image: "/assets/service_training_1783356166046.png",
+      link: "/training"
     },
     {
-      icon: <Sparkles className="w-6 h-6 text-foreground" />,
-      title: "Heritage Stitching",
-      desc: "Hand-finished borders and heavy zari work meticulously preserved during tailoring."
+      id: "03",
+      title: "Aari & Hand Embroidery",
+      subtitle: "Intricate Handwork",
+      description: "Our artisans specialize in exquisite Aari work, hand embroidery, and precision machine embroidery. Every bead and thread is meticulously placed to create breathtaking designs on rich fabrics.",
+      image: "/assets/service_embroidery_1783356229184.png",
+      link: "/embroidery"
     },
     {
-      icon: <CheckCircle className="w-6 h-6 text-foreground" />,
-      title: "The Final Polish",
-      desc: "Rigorous quality checks before the fabric ever touches the sacred stage."
+      id: "04",
+      title: "Traditional Mehendi (Henna Art)",
+      subtitle: "Cultural Elegance",
+      description: "We provide exquisite, highly detailed Mehendi for weddings and special occasions, honoring traditional Indian patterns with a modern, flawless application for the most important days of your life.",
+      image: "/assets/service_mehendi_1783356251879.png",
+      link: "/mehendi"
+    },
+    {
+      id: "05",
+      title: "Professional Tattoo Services",
+      subtitle: "Permanent Artistry",
+      description: "Our clean, modern studio offers highly detailed, creative tattoo services. We turn your vision into permanent, beautiful body art in a completely professional and hygienic environment.",
+      image: "/assets/service_tattoo_1783356284270.png",
+      link: "/tattoo"
     }
   ];
 
   return (
-    <section className="py-16 px-8 relative z-10">
-      <div className="w-full max-w-[1400px] mx-auto">
-        
-        <div className="flex flex-col items-center text-center mb-24">
-          <span className="text-sm md:text-base uppercase tracking-[0.3em] text-foreground mb-6 font-sans font-bold shadow-sm">The Process</span>
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-serif text-foreground tracking-tight font-bold mb-6">Art of Tailoring</h2>
-          <div className="w-[3px] h-16 bg-foreground"></div>
+    <section className="w-full py-24 px-6 md:px-12 relative z-20">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="text-center mb-20">
+          <span className="text-sm font-sans tracking-[0.4em] uppercase text-foreground/70 font-bold block mb-4">
+            Service Excellence
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif text-foreground font-bold">
+            The Anatomy of Perfection
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {steps.map((step, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="glass-panel p-10 flex flex-col items-center text-center hover:-translate-y-4 transition-transform duration-500 bg-white/30 backdrop-blur-xl shadow-lg border border-white/20"
-            >
-              <div className="w-16 h-16 rounded-full border border-foreground/30 flex items-center justify-center mb-8 bg-white/20">
-                {step.icon}
-              </div>
-              <h3 className="font-serif text-2xl md:text-3xl text-foreground font-bold mb-6">{step.title}</h3>
-              <p className="font-sans text-base md:text-lg text-foreground/90 leading-relaxed font-medium">
-                {step.desc}
-              </p>
-            </motion.div>
+        <div className="flex flex-col gap-24">
+          {features.map((feature, index) => (
+            <Link href={feature.link} key={feature.id} className="group block">
+              <div className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 lg:gap-24`} >
+              <motion.div 
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8 }}
+                className="w-full md:w-1/2 relative h-[400px] lg:h-[500px] glass-panel overflow-hidden p-2"
+              >
+                <Image 
+                  src={feature.image} 
+                  alt={feature.title} 
+                  fill 
+                  className="object-cover p-2 rounded-xl transition-transform duration-700 hover:scale-105"
+                />
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="w-full md:w-1/2"
+              >
+                <span className="text-6xl md:text-8xl font-serif text-foreground/10 font-bold absolute -z-10 -translate-y-10 -translate-x-10">
+                  {feature.id}
+                </span>
+                <span className="text-xs uppercase tracking-[0.3em] font-sans font-bold text-foreground/70 block mb-2">
+                  {feature.subtitle}
+                </span>
+                <h3 className="text-3xl lg:text-4xl font-serif text-foreground font-bold mb-6">
+                  {feature.title}
+                </h3>
+                <p className="text-base font-sans text-foreground/80 leading-relaxed">
+                  {feature.description}
+                </p>
+                <div className="mt-8 flex items-center gap-2 text-foreground font-bold text-xs uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                  Explore <div className="w-6 h-[1px] bg-foreground"></div>
+                </div>
+              </motion.div>
+            </div>
+            </Link>
           ))}
         </div>
-
       </div>
     </section>
   );

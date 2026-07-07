@@ -59,7 +59,7 @@ export default function AboutPage() {
             Founded with a singular vision to preserve the sanctity of classical dance attire, Sri Sanjana Tailoring & Academy was born. What started as a modest endeavor quickly blossomed into a sanctuary for bespoke craftsmanship.
           </p>
           <p className="text-base font-sans text-foreground/80 leading-relaxed font-medium">
-            We understood early on that a dancer's costume is their second skin on stage. It must breathe, it must move seamlessly, and above all, it must honor the ancient geometry of the Adavus.
+            We understood early on that a dancer&apos;s costume is their second skin on stage. It must breathe, it must move seamlessly, and above all, it must honor the ancient geometry of the Adavus.
           </p>
         </motion.div>
 
@@ -92,7 +92,7 @@ export default function AboutPage() {
               The Architecture <br/>of Movement.
             </h2>
             <p className="text-base font-sans text-background/80 leading-relaxed mb-6 font-medium">
-              We work exclusively with pure semi silk and semi kanchipuram silk sarees. The weight, the luster, and the fall of these specific fabrics are mathematically essential for creating the perfect 'Vishiri' (front fan).
+              We work exclusively with pure semi silk and semi kanchipuram silk sarees. The weight, the luster, and the fall of these specific fabrics are mathematically essential for creating the perfect &apos;Vishiri&apos; (front fan).
             </p>
             <p className="text-base font-sans text-background/80 leading-relaxed font-medium">
               Our master tailors take incredibly precise measurements, ensuring the Kacham (back piece) sits perfectly, and the Aramandi posture can be struck without any restriction or pulling of the fabric.

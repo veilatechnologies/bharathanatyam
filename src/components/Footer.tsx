@@ -14,8 +14,8 @@ export default function Footer() {
           <h2 className="text-3xl font-serif text-white font-bold tracking-[0.1em] uppercase">
             Sri Sanjana
           </h2>
-          <p className="text-xs uppercase tracking-[0.2em] font-sans font-bold text-white/80 mt-4 mb-6">
-            Bharatanatyam Atelier
+          <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-sans font-bold text-white/80 mt-4 mb-6 text-center">
+            Tailoring | Beauty Parlour | Tattoo Studio | Art Academy
           </p>
           <div className="flex flex-col items-center gap-1 text-white/70 font-sans text-sm text-center">
             <p>Andikinatru St, Sivagami Puram</p>

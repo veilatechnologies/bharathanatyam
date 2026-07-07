@@ -48,10 +48,10 @@ export default function Navbar() {
 
           {/* Right: Links & Mobile Menu */}
           <div className="flex justify-end items-center space-x-6 text-xs tracking-[0.1em] uppercase text-white font-sans font-bold lg:w-1/3">
-            <Link href="/collections" className="hover:opacity-70 transition-opacity hidden lg:block">Collections</Link>
-            <Link href="/about" className="hover:opacity-70 transition-opacity hidden lg:block">About</Link>
-            <Link href="/measurements" className="hover:opacity-70 transition-opacity hidden lg:block">Measurements</Link>
-            <Link href="/contact" className="hover:opacity-70 transition-opacity hidden lg:block">Contact</Link>
+            <Link href="/tailoring" className="hover:opacity-70 transition-opacity hidden lg:block">Tailoring</Link>
+            <Link href="/training" className="hover:opacity-70 transition-opacity hidden lg:block">Training</Link>
+            <Link href="/mehendi" className="hover:opacity-70 transition-opacity hidden lg:block">Mehendi</Link>
+            <Link href="/tattoo" className="hover:opacity-70 transition-opacity hidden lg:block">Tattoo</Link>
             
             <button 
               className="lg:hidden flex items-center hover:opacity-70 transition-opacity"
@@ -83,32 +83,32 @@ export default function Navbar() {
 
             <div className="flex flex-col items-center space-y-8 h-full justify-center">
               <Link 
-                href="/collections" 
+                href="/tailoring" 
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-3xl font-serif text-white uppercase tracking-[0.2em] hover:text-gold transition-colors"
               >
-                Collections
+                Tailoring
               </Link>
               <Link 
-                href="/about" 
+                href="/training" 
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-3xl font-serif text-white uppercase tracking-[0.2em] hover:text-gold transition-colors"
               >
-                About
+                Training
               </Link>
               <Link 
-                href="/measurements" 
+                href="/mehendi" 
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-3xl font-serif text-white uppercase tracking-[0.2em] hover:text-gold transition-colors"
               >
-                Measurements
+                Mehendi
               </Link>
               <Link 
-                href="/contact" 
+                href="/tattoo" 
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-3xl font-serif text-white uppercase tracking-[0.2em] hover:text-gold transition-colors"
               >
-                Contact
+                Tattoo
               </Link>
             </div>
             

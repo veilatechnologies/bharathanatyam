@@ -16,10 +16,10 @@ export default function Preloader() {
       window.scrollTo(0, 0);
     }
 
-    // Wait 1.4 seconds to show the animation completely, then start fading out
-    const timer1 = setTimeout(() => setVisible(false), 1400);
+    // Wait 2 seconds to show the animation completely, then start fading out
+    const timer1 = setTimeout(() => setVisible(false), 2000);
     // Remove from DOM completely after fade out
-    const timer2 = setTimeout(() => setRendering(false), 2000);
+    const timer2 = setTimeout(() => setRendering(false), 2800);
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -46,7 +46,7 @@ export default function Preloader() {
   };
 
   const titleText = "SRI SANJANA";
-  const subtitleText = "THE ATELIER";
+  const subtitleText = "Tailoring | Beauty Parlour | Tattoo Studio | Art Academy";
 
   return (
     <div className={`fixed inset-0 z-[9999] bg-foreground flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
@@ -100,10 +100,10 @@ export default function Preloader() {
         
         {/* Subtitle Typing */}
         <motion.p 
-          className="mt-8 text-gold uppercase tracking-[0.3em] text-sm md:text-base font-bold flex"
+          className="mt-8 text-gold uppercase tracking-[0.15em] md:tracking-[0.2em] text-[8px] md:text-xs font-bold flex flex-wrap justify-center px-4 text-center"
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.03, delayChildren: 0.5 } }
+            visible: { opacity: 1, transition: { staggerChildren: 0.015, delayChildren: 0.5 } }
           }}
           initial="hidden"
           animate="visible"

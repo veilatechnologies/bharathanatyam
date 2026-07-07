@@ -1,82 +1,78 @@
 "use client";
-import { Ruler, Scissors, Sparkles, Gem } from 'lucide-react';
+import React from 'react';
 import { motion } from 'framer-motion';
+import { Scissors, GraduationCap, Flower2, PenTool } from 'lucide-react';
+import Link from 'next/link';
+
 export default function Features() {
-  const features = [
+  const pillars = [
     {
-      icon: <Ruler className="w-6 h-6" />,
-      title: "Immaculate Fit",
-      desc: "Tailored to your exact measurements for complete freedom of movement on stage."
+      title: "Custom Tailoring",
+      subtitle: "& Designer Wear",
+      description: "Delivering impeccable custom-made outfits and authentic Bharathanatyam attire to customers worldwide.",
+      icon: <Scissors className="w-10 h-10 text-white" />,
+      link: "/tailoring"
     },
     {
-      icon: <Gem className="w-6 h-6" />,
-      title: "Premium Fabrics",
-      desc: "Only the highest quality semi silk and semi kanchipuram silk sarees used for durability and luster."
+      title: "Training Academy",
+      subtitle: "Empowering Others",
+      description: "Affordable training programs for learners everywhere, available both offline at our Virudhunagar center and online.",
+      icon: <GraduationCap className="w-10 h-10 text-white" />,
+      link: "/training"
     },
     {
-      icon: <Sparkles className="w-6 h-6" />,
-      title: "Authentic Zari",
-      desc: "Intricate temple borders and pure zari work that catches the stage lights."
+      title: "Mehendi Artistry",
+      subtitle: "Traditional Henna",
+      description: "Exquisite, intricate traditional Mehendi designs applied by expert artists for weddings and special occasions.",
+      icon: <Flower2 className="w-10 h-10 text-white" />,
+      link: "/mehendi"
     },
     {
-      icon: <Scissors className="w-6 h-6" />,
-      title: "Custom Design",
-      desc: "Fully customizable patterns and color combinations to match your vision."
+      title: "Tattoo Services",
+      subtitle: "Creative Solutions",
+      description: "Professional, hygienic, and deeply artistic tattoo services delivering permanent art tailored to your vision.",
+      icon: <PenTool className="w-10 h-10 text-white" />,
+      link: "/tattoo"
     }
   ];
 
   return (
-    <section className="bg-background border-b border-foreground/20 relative z-10 py-12 md:py-20">
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {features.map((feat, idx) => (
-            <motion.div 
-              key={idx} 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="group h-[320px] w-full [perspective:1000px]"
-            >
-              {/* Inner card with 3D transform */}
+    <section id="services" className="w-full py-24 px-6 md:px-12 relative z-20">
+      <div className="max-w-[1400px] mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <span className="text-sm font-sans tracking-[0.4em] uppercase text-foreground/70 font-bold">The Pillars of</span>
+          <h2 className="text-4xl md:text-5xl font-serif text-foreground font-bold mt-2">Sri Sanjana</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {pillars.map((pillar, index) => (
+            <Link href={pillar.link} key={index} className="block group [perspective:1200px]">
               <motion.div 
-                className="relative w-full h-full [transform-style:preserve-3d]"
-                initial={{ rotateY: 0 }}
-                whileInView={{ rotateY: 180 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ 
-                  duration: 0.8, 
-                  ease: "easeInOut",
-                  delay: 0.2 + (idx * 0.2)
-                }}
+                initial={{ opacity: 0, rotateY: -180, scale: 0.8, z: -100, backgroundColor: "rgba(255,255,255,0.0)" }}
+                whileInView={{ opacity: 1, rotateY: 0, scale: 1, z: 0, backgroundColor: "rgb(26, 17, 20)" }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 1.5, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="glass-panel p-8 flex flex-col items-center text-center h-full transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl bg-foreground [transform-style:preserve-3d]"
               >
-                
-                {/* FRONT FACE */}
-                <div className="absolute inset-0 [backface-visibility:hidden] p-8 flex flex-col items-center justify-center text-center border border-foreground/10 rounded-2xl bg-white/20 backdrop-blur-sm shadow-[0_10px_30px_rgba(0,0,0,0.05)]">
-                  <div className="w-20 h-20 flex items-center justify-center mb-6 text-foreground bg-white rounded-full shadow-lg">
-                    {feat.icon}
-                  </div>
-                  <h4 className="text-sm md:text-base font-bold uppercase tracking-[0.2em] font-sans text-foreground">
-                    {feat.title}
-                  </h4>
-                  {/* Hover hint removed since it's automatic */}
+                <div className="w-20 h-20 bg-white rounded-full flex flex-col items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                  {React.cloneElement(pillar.icon as React.ReactElement, { className: 'w-10 h-10 text-foreground' })}
                 </div>
-
-                {/* BACK FACE */}
-                <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] p-8 flex flex-col items-center justify-center text-center border border-gold/40 rounded-2xl bg-foreground shadow-[0_20px_40px_rgba(0,0,0,0.2)]">
-                  <div className="w-12 h-12 flex items-center justify-center mb-6 text-gold bg-white/10 rounded-full">
-                    {feat.icon}
-                  </div>
-                  <h4 className="text-sm font-bold uppercase tracking-[0.2em] font-sans text-gold mb-4">
-                    {feat.title}
-                  </h4>
-                  <p className="text-sm md:text-base font-sans text-white/90 leading-relaxed font-medium">
-                    {feat.desc}
-                  </p>
+                <h3 className="text-2xl font-serif text-white font-bold mb-2">{pillar.title}</h3>
+                <span className="text-xs uppercase tracking-[0.2em] font-sans text-white/80 font-bold mb-4 block">{pillar.subtitle}</span>
+                <p className="text-sm font-sans text-white/90 leading-relaxed">
+                  {pillar.description}
+                </p>
+                <div className="mt-8 flex items-center gap-2 text-white font-bold text-xs uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-opacity">
+                  Explore <div className="w-6 h-[1px] bg-white"></div>
                 </div>
-
               </motion.div>
-            </motion.div>
+            </Link>
           ))}
         </div>
       </div>

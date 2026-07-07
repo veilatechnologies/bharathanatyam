@@ -1,8 +1,35 @@
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
+
+const slides = [
+  {
+    id: "tailoring",
+    image: "/assets/hero_bharatanatyam.png",
+    subtitle: "Custom Tailoring & Designer Wear",
+    link: "/tailoring"
+  },
+  {
+    id: "embroidery",
+    image: "/assets/aari_hero.png",
+    subtitle: "Aari & Hand Embroidery",
+    link: "/embroidery"
+  },
+  {
+    id: "mehendi",
+    image: "/assets/mehendi_hero.png",
+    subtitle: "Mehendi Artistry",
+    link: "/mehendi"
+  },
+  {
+    id: "tattoo",
+    image: "/assets/tattoo_hero.png",
+    subtitle: "Tattoo Services",
+    link: "/tattoo"
+  }
+];
 
 export default function Hero() {
   const ref = useRef(null);
@@ -14,38 +41,86 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.2]);
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <>
-      <section ref={ref} className="relative w-full h-[70vh] md:h-screen flex flex-col items-center justify-center overflow-hidden">
+      <section ref={ref} className="relative w-full h-[70vh] md:h-screen flex flex-col items-center justify-center overflow-hidden bg-[#1a1114]">
         
-        {/* Full Width Background Image with Parallax */}
         <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
-          <Image 
-            src="/assets/hero_bharatanatyam.png" 
-            alt="Bharatanatyam Silk" 
-            fill 
-            sizes="100vw"
-            className="object-cover object-[center_20%] hover:scale-105 transition-transform duration-[6s]" 
-            priority 
-          />
-          {/* Subtle gradient overlay to make text pop without hiding image */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full"
+            >
+              <Image 
+                src={slides[currentIndex].image} 
+                alt={slides[currentIndex].subtitle} 
+                fill 
+                sizes="100vw"
+                className="object-cover object-[center_20%] transform transition-transform duration-[8s] hover:scale-110" 
+                priority={currentIndex === 0}
+              />
+            </motion.div>
+          </AnimatePresence>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/80 z-10 pointer-events-none"></div>
         </motion.div>
 
-        {/* Minimalist Brand Name Only */}
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="relative z-10 w-full text-center px-4"
-        >
-          <h1 className="text-4xl sm:text-6xl md:text-8xl lg:text-[110px] font-serif text-white tracking-[0.1em] font-bold drop-shadow-2xl uppercase whitespace-nowrap">
+        <div className="relative z-20 w-full text-center px-4 mt-20 flex flex-col items-center">
+          <motion.h1 
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="text-4xl sm:text-6xl md:text-8xl lg:text-[110px] font-serif text-white tracking-[0.1em] font-bold drop-shadow-2xl uppercase whitespace-nowrap mb-6"
+          >
             Sri Sanjana
-          </h1>
-        </motion.div>
+          </motion.h1>
+
+          <div className="h-12 overflow-hidden flex items-center justify-center">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.8 }}
+                className="flex items-center gap-4"
+              >
+                <div className="w-8 h-[1px] bg-gold/70"></div>
+                <span className="text-sm md:text-lg text-gold uppercase tracking-[0.4em] font-sans font-bold">
+                  {slides[currentIndex].subtitle}
+                </span>
+                <div className="w-8 h-[1px] bg-gold/70"></div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+
+        <div className="absolute bottom-8 left-0 right-0 z-20 flex justify-center gap-3">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                idx === currentIndex ? "w-8 bg-gold" : "w-2 bg-white/40 hover:bg-white/70"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
       </section>
 
-      {/* Intro Section Below Hero */}
       <section className="w-full py-12 px-8 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
@@ -54,24 +129,42 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="max-w-[1000px] mx-auto text-center glass-panel p-12 md:p-20 shadow-2xl"
         >
-          
           <div className="mb-6 flex items-center justify-center gap-4">
             <span className="w-16 h-[3px] bg-foreground"></span>
-            <span className="text-sm uppercase tracking-[0.3em] font-sans font-bold text-foreground drop-shadow-sm">Since 2010</span>
+            <span className="text-sm uppercase tracking-[0.3em] font-sans font-bold text-foreground drop-shadow-sm">Welcome to Sri Sanjana</span>
             <span className="w-16 h-[3px] bg-foreground"></span>
           </div>
           
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground font-bold leading-tight mb-8">
-            The Pinnacle of <br className="hidden md:block"/> Authentic Attire.
-          </h2>
+          <div className="text-lg md:text-xl font-sans text-foreground/90 leading-relaxed mb-12 font-medium max-w-[800px] mx-auto space-y-6 text-left">
+            <p>
+              What began as a small home-based tailoring business has grown into a trusted brand serving customers across the globe. At Sri Sanjana, we started by teaching tailoring and stitching customized garments with care and dedication. Today, nearly 90% of our customers are from overseas, and we proudly design and deliver custom-made outfits worldwide.
+            </p>
+            <p>
+              Over the past 15 years, we have expanded our expertise beyond tailoring to offer a wide range of creative and professional services, including:
+            </p>
+            
+            <ul className="list-none space-y-2 py-4 pl-4 md:pl-8">
+              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-foreground shrink-0"></div> Custom Tailoring & Designer Wear</li>
+              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-foreground shrink-0"></div> Tailoring Training</li>
+              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-foreground shrink-0"></div> Aari Work</li>
+              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-foreground shrink-0"></div> Hand Embroidery</li>
+              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-foreground shrink-0"></div> Machine Embroidery</li>
+              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-foreground shrink-0"></div> Mehendi (Henna Art)</li>
+              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-foreground shrink-0"></div> Tattoo Services</li>
+              <li className="flex items-center gap-3"><div className="w-2 h-2 rounded-full bg-foreground shrink-0"></div> And many more creative solutions</li>
+            </ul>
+
+            <p>
+              We are committed not only to delivering quality craftsmanship but also to empowering others by providing affordable training programs, both offline at our Virudhunagar center and online for learners everywhere.
+            </p>
+            <p className="pt-4 font-serif text-2xl md:text-3xl text-foreground font-bold italic text-center">
+              Thank you for being a part of the Sri Sanjana family.
+            </p>
+          </div>
           
-          <p className="text-lg md:text-xl font-sans text-foreground/90 leading-relaxed mb-12 font-medium max-w-[800px] mx-auto">
-            Dressing generations of classical dancers with perfectly tailored costumes made exclusively from semi silk and semi kanchipuram silk sarees.
-          </p>
-          
-          <div>
-            <Link href="/collections" className="btn-structured border-foreground bg-foreground text-white hover:bg-transparent hover:text-foreground shadow-xl text-sm md:text-base">
-              Explore Collections
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link href="#services" className="btn-structured border-foreground bg-foreground text-white hover:bg-transparent hover:text-foreground shadow-xl text-sm md:text-base">
+              Explore Our Services
             </Link>
           </div>
         </motion.div>

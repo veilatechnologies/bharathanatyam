@@ -29,7 +29,7 @@ export default function RootLayout({
       lang="en"
       className={`${montserrat.variable} ${philosopher.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-background text-foreground selection:bg-accent selection:text-background">
+      <body className="min-h-full overflow-x-hidden flex flex-col font-sans bg-background text-foreground selection:bg-accent selection:text-background">
         <Preloader />
         {children}
       </body>
