@@ -64,8 +64,8 @@ export default function SunPleatedPantDetail() {
             
             <motion.div 
               variants={{ hidden: { scaleX: 0 }, visible: { scaleX: 1 } }}
-              transition={{ duration: 1, ease: "easeInOut", originX: 0 }}
-              className="w-16 h-[1px] bg-foreground/30 mt-8 mb-12"
+              transition={{ duration: 1, ease: "easeInOut" }}
+              className="w-16 h-[1px] bg-foreground/30 mt-8 mb-12 origin-left"
             ></motion.div>
           </motion.div>
         </section>
