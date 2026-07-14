@@ -7,32 +7,25 @@ import Link from 'next/link';
 export default function Features() {
   const pillars = [
     {
-      title: "Custom Tailoring",
-      subtitle: "& Designer Wear",
-      description: "Delivering impeccable custom-made outfits and authentic Bharathanatyam attire to customers worldwide.",
+      title: "Bharathanatyam",
+      subtitle: "Dance Costumes",
+      description: "Authentic, hand-stitched Bharathanatyam attire designed for flawless mobility and striking stage presence.",
+      icon: <Flower2 className="w-10 h-10 text-white" />,
+      link: "/bharathanatyam"
+    },
+    {
+      title: "Tailoring & Aari",
+      subtitle: "Custom Design",
+      description: "Impeccable custom bridal blouses, gowns, and intricate Aari embroidery crafted to perfection.",
       icon: <Scissors className="w-10 h-10 text-white" />,
       link: "/tailoring"
     },
     {
-      title: "Training Academy",
-      subtitle: "Empowering Others",
-      description: "Affordable training programs for learners everywhere, available both offline at our Virudhunagar center and online.",
-      icon: <GraduationCap className="w-10 h-10 text-white" />,
-      link: "/training"
-    },
-    {
-      title: "Mehendi Artistry",
-      subtitle: "Traditional Henna",
-      description: "Exquisite, intricate traditional Mehendi designs applied by expert artists for weddings and special occasions.",
-      icon: <Flower2 className="w-10 h-10 text-white" />,
-      link: "/mehendi"
-    },
-    {
-      title: "Tattoo Services",
-      subtitle: "Creative Solutions",
-      description: "Professional, hygienic, and deeply artistic tattoo services delivering permanent art tailored to your vision.",
+      title: "Beauty Parlour",
+      subtitle: "Aesthetics & Art",
+      description: "Exquisite traditional Mehendi and professional Tattoo artistry under one premium roof.",
       icon: <PenTool className="w-10 h-10 text-white" />,
-      link: "/tattoo"
+      link: "/beauty"
     }
   ];
 
@@ -50,14 +43,14 @@ export default function Features() {
           <h2 className="text-4xl md:text-5xl font-serif text-foreground font-bold mt-2">Sri Sanjana</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1100px] mx-auto">
           {pillars.map((pillar, index) => (
             <Link href={pillar.link} key={index} className="block group [perspective:1200px]">
               <motion.div 
                 initial={{ opacity: 0, rotateY: -180, scale: 0.8, z: -100, backgroundColor: "rgba(255,255,255,0.0)" }}
                 whileInView={{ opacity: 1, rotateY: 0, scale: 1, z: 0, backgroundColor: "rgb(26, 17, 20)" }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 1.5, delay: index * 0.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.7, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className="glass-panel p-8 flex flex-col items-center text-center h-full transition-transform duration-500 hover:-translate-y-2 hover:shadow-2xl bg-foreground [transform-style:preserve-3d]"
               >
                 <div className="w-20 h-20 bg-white rounded-full flex flex-col items-center justify-center mb-6 shadow-xl relative z-20 group-hover:scale-110 transition-transform duration-500">

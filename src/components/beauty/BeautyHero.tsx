@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-export default function TailoringHero() {
+export default function BeautyHero() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -20,24 +20,24 @@ export default function TailoringHero() {
       <motion.div style={{ opacity }} className="absolute inset-0 w-full h-full flex z-0">
         <motion.div style={{ y: y1 }} className="w-1/3 h-[120%] relative -top-[10%]">
           <Image 
-            src="/assets/tailoring_machine_girl.png" 
-            alt="Tailoring Machine" 
+            src="/assets/service_mehendi_1783356251879.png" 
+            alt="Mehendi Art" 
             fill 
             className="object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" 
           />
         </motion.div>
         <motion.div style={{ y: y2 }} className="w-1/3 h-[120%] relative -top-[5%]">
           <Image 
-            src="/assets/bridal_blouse_v2.png" 
-            alt="Bridal Blouse" 
+            src="/assets/beauty_detail.png" 
+            alt="Professional Makeup" 
             fill 
             className="object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" 
           />
         </motion.div>
         <motion.div style={{ y: y1 }} className="w-1/3 h-[120%] relative -top-[15%]">
           <Image 
-            src="/assets/aari_detail.png" 
-            alt="Aari Detail" 
+            src="/assets/service_tattoo_1783356284270.png" 
+            alt="Temporary Tattoo" 
             fill 
             className="object-cover opacity-60 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" 
           />
@@ -63,7 +63,7 @@ export default function TailoringHero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-gold tracking-[0.5em] uppercase text-xs md:text-sm font-bold block mb-4"
         >
-          Custom Stitching & Design
+          Professional Care & Styling
         </motion.span>
         
         <motion.h1 
@@ -72,7 +72,7 @@ export default function TailoringHero() {
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
           className="text-5xl md:text-7xl lg:text-8xl font-serif text-white font-bold drop-shadow-2xl mb-8"
         >
-          Bespoke Tailoring
+          Beauty Parlour
         </motion.h1>
         
         <motion.p
@@ -81,7 +81,7 @@ export default function TailoringHero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="text-white/80 font-sans text-lg md:text-xl max-w-2xl font-light"
         >
-          Crafting perfect fits and exquisite designs. From ready-made blouses to high-end bespoke garments.
+          Transforming moments into memories with exquisite Mehendi, flawless makeup, and elegant styling.
         </motion.p>
       </div>
     </section>

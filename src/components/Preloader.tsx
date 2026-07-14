@@ -46,7 +46,7 @@ export default function Preloader() {
   };
 
   const titleText = "SRI SANJANA";
-  const subtitleText = "Tailoring | Beauty Parlour | Tattoo Studio | Art Academy";
+  const subtitleText = "Bharathanatyam | Tailoring | Beauty Parlour";
 
   return (
     <div className={`fixed inset-0 z-[9999] bg-foreground flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>

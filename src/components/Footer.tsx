@@ -15,7 +15,7 @@ export default function Footer() {
             Sri Sanjana
           </h2>
           <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-sans font-bold text-white/80 mt-4 mb-6 text-center">
-            Tailoring | Beauty Parlour | Tattoo Studio | Art Academy
+            Bharathanatyam | Tailoring | Beauty Parlour
           </p>
           <div className="flex flex-col items-center gap-1 text-white/70 font-sans text-sm text-center">
             <p>Andikinatru St, Sivagami Puram</p>
@@ -28,17 +28,14 @@ export default function Footer() {
 
         {/* Navigation Links */}
         <div className="flex flex-wrap justify-center gap-8 mb-16">
-          <Link href="/collections" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
-            Collections
+          <Link href="/bharathanatyam" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
+            Bharathanatyam
           </Link>
-          <Link href="/about" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
-            About
+          <Link href="/tailoring" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
+            Tailoring
           </Link>
-          <Link href="/measurements" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
-            Measurements
-          </Link>
-          <Link href="/contact" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
-            Contact
+          <Link href="/beauty" className="text-xs uppercase tracking-[0.1em] font-sans font-bold text-white/90 hover:text-white transition-colors">
+            Beauty Parlour
           </Link>
         </div>
 
