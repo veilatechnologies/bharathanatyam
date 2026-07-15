@@ -86,13 +86,14 @@ export default function SunPleatedPantDetail() {
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: (index % 3) * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full overflow-hidden bg-foreground/5 rounded-sm"
+                className="relative w-full aspect-[3/4] overflow-hidden bg-foreground/5 rounded-sm"
               >
-                <img 
+                <Image 
                   src={item.src} 
                   alt={`Costume detail ${index + 1}`}
-                  className="w-full h-auto object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
               </motion.div>
               <motion.div 
