@@ -20,7 +20,7 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
   return (
     <section className="w-full py-24 px-6 md:px-12 relative z-20">
       <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -39,6 +39,19 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
         {/* Simple Standard Square Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {images.map((item, i) => {
+            const isTallCategory = title === "Long Gowns" || title === "Lehenga";
+            const isWideCategory = title === "Family Combos" || title === "Siblings Combo";
+            
+            let aspectClass = "aspect-[4/5]";
+            let objectPos = "object-top";
+            
+            if (isTallCategory) {
+              aspectClass = "aspect-[2/3]";
+            } else if (isWideCategory) {
+              aspectClass = "aspect-[4/3]";
+              objectPos = "object-center";
+            }
+
             return (
               <motion.div 
                 key={item.id}
@@ -46,13 +59,13 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="relative group overflow-hidden aspect-square border border-foreground/10"
+                className={`relative group overflow-hidden ${aspectClass} border border-foreground/10`}
               >
                 <Image 
                   src={item.src} 
                   alt={item.category} 
                   fill
-                  className="object-cover transition-transform duration-[2s] group-hover:scale-110"
+                  className={`object-cover ${objectPos} transition-transform duration-[2s] group-hover:scale-110`}
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">

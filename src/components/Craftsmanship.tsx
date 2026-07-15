@@ -18,7 +18,7 @@ export default function Craftsmanship() {
       id: "02",
       title: "Custom Tailoring & Design",
       subtitle: "Bespoke Perfection",
-      description: "From impeccable ready-made blouses to luxurious custom-made global outfits, our master tailors ensure every garment breathes, moves seamlessly, and fits flawlessly.",
+      description: "From impeccable custom stitching to luxurious bespoke global outfits, our master tailors ensure every garment breathes, moves seamlessly, and fits flawlessly.",
       image: "/assets/tailoring_machine_new.png",
       link: "/tailoring"
     },

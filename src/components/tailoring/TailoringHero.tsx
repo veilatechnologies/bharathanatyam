@@ -81,7 +81,7 @@ export default function TailoringHero() {
           transition={{ duration: 1, delay: 0.8 }}
           className="text-white/80 font-sans text-lg md:text-xl max-w-2xl font-light"
         >
-          Crafting perfect fits and exquisite designs. From ready-made blouses to high-end bespoke garments.
+          Crafting perfect fits and exquisite designs. From custom stitching to high-end bespoke garments.
         </motion.p>
       </div>
     </section>
