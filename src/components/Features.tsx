@@ -23,7 +23,7 @@ export default function Features() {
     {
       title: "Beauty Parlour",
       subtitle: "Aesthetics & Art",
-      description: "Exquisite traditional Mehendi and professional Tattoo artistry under one premium roof.",
+      description: "Professional makeup artist and pro-level makeup services, alongside exquisite traditional Mehendi and Tattoo artistry.",
       icon: <PenTool className="w-10 h-10 text-white" />,
       link: "/beauty"
     }
