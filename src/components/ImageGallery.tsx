@@ -52,7 +52,7 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
                   src={item.src} 
                   alt={item.category} 
                   fill
-                  className="object-cover object-[center_15%] md:object-top transition-transform duration-[2s] group-hover:scale-110 opacity-90"
+                  className="object-cover transition-transform duration-[2s] group-hover:scale-110"
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
