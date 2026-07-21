@@ -260,5 +260,19 @@ export const tailoringCategories = [
     subtitle: "Coordinated Outfits",
     cover: familyComboImages[0]?.src,
     images: familyComboImages
+  },
+  {
+    id: "customer-photos",
+    title: "Customer Photos",
+    subtitle: "Happy Clients",
+    cover: "/assets/placeholder.jpg",
+    images: []
+  },
+  {
+    id: "customer-reviews",
+    title: "Customer Reviews",
+    subtitle: "What our clients say",
+    cover: "/assets/placeholder.jpg",
+    images: []
   }
 ];

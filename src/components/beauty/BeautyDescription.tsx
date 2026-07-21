@@ -1,6 +1,8 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export default function BeautyDescription() {
   return (
@@ -37,37 +39,68 @@ export default function BeautyDescription() {
             className="relative group overflow-hidden border-2 border-gold/20 hover:border-gold/50 bg-background rounded-tl-[40px] rounded-br-[40px] transition-all duration-500 shadow-xl"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-gold/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="relative z-10 flex flex-col justify-center space-y-6 p-10 md:p-14 h-full bg-background/95">
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center bg-gold/5 shrink-0">
-                  <span className="text-2xl">🌸</span>
-                </div>
-                <p className="text-xl md:text-2xl font-serif text-foreground font-medium">Saree Pre-Pleating</p>
-              </div>
-              <div className="w-12 h-[1px] bg-foreground/20 ml-20"></div>
+            <div className="relative z-10 flex flex-col justify-center space-y-4 p-8 md:p-12 h-full bg-background/95">
               
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center bg-gold/5 shrink-0">
-                  <span className="text-2xl">💋</span>
+              <Link href="/beauty/saree-pre-pleating" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-current/30 flex items-center justify-center bg-current/5 shrink-0 transition-colors">
+                    <span className="text-2xl group-hover/item:scale-110 transition-transform">🌸</span>
+                  </div>
+                  <p className="text-xl md:text-2xl font-serif font-medium">Saree Pre-Pleating</p>
                 </div>
-                <p className="text-xl md:text-2xl font-serif text-foreground font-medium">Professional Makeup & Hairdo</p>
-              </div>
-              <div className="w-12 h-[1px] bg-foreground/20 ml-20"></div>
+                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
+              </Link>
               
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center bg-gold/5 shrink-0">
-                  <span className="text-2xl">🌿</span>
+              <Link href="/beauty/professional-makeup-and-hairdo" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-current/30 flex items-center justify-center bg-current/5 shrink-0 transition-colors">
+                    <span className="text-2xl group-hover/item:scale-110 transition-transform">💋</span>
+                  </div>
+                  <p className="text-xl md:text-2xl font-serif font-medium">Professional Makeup & Hairdo</p>
                 </div>
-                <p className="text-xl md:text-2xl font-serif text-foreground font-medium">Mehndi Designs</p>
-              </div>
-              <div className="w-12 h-[1px] bg-foreground/20 ml-20"></div>
+                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
+              </Link>
+              
+              <Link href="/beauty/mehndi-designs" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-current/30 flex items-center justify-center bg-current/5 shrink-0 transition-colors">
+                    <span className="text-2xl group-hover/item:scale-110 transition-transform">🌿</span>
+                  </div>
+                  <p className="text-xl md:text-2xl font-serif font-medium">Mehndi Designs</p>
+                </div>
+                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
+              </Link>
 
-              <div className="flex items-center gap-6">
-                <div className="w-14 h-14 rounded-full border border-gold/30 flex items-center justify-center bg-gold/5 shrink-0">
-                  <span className="text-2xl">🦋</span>
+              <Link href="/beauty/temporary-tattoos" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-current/30 flex items-center justify-center bg-current/5 shrink-0 transition-colors">
+                    <span className="text-2xl group-hover/item:scale-110 transition-transform">🦋</span>
+                  </div>
+                  <p className="text-xl md:text-2xl font-serif font-medium">Temporary Tattoos for Girls</p>
                 </div>
-                <p className="text-xl md:text-2xl font-serif text-foreground font-medium">Temporary Tattoos for Girls</p>
-              </div>
+                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
+              </Link>
+
+              <Link href="/beauty/customer-photos" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-current/30 flex items-center justify-center bg-current/5 shrink-0 transition-colors">
+                    <span className="text-2xl group-hover/item:scale-110 transition-transform">📸</span>
+                  </div>
+                  <p className="text-xl md:text-2xl font-serif font-medium">Customer Photos</p>
+                </div>
+                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
+              </Link>
+
+              <Link href="/beauty/customer-reviews" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full border border-current/30 flex items-center justify-center bg-current/5 shrink-0 transition-colors">
+                    <span className="text-2xl group-hover/item:scale-110 transition-transform">⭐</span>
+                  </div>
+                  <p className="text-xl md:text-2xl font-serif font-medium">Customer Reviews</p>
+                </div>
+                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
+              </Link>
+
             </div>
           </motion.div>
 

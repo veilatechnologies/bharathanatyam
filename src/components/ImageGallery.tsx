@@ -8,6 +8,7 @@ interface GalleryItem {
   src: string;
   category: string;
   size: 'square' | 'wide' | 'tall' | 'large';
+  colors?: string;
 }
 
 interface ImageGalleryProps {
@@ -18,7 +19,7 @@ interface ImageGalleryProps {
 
 export default function ImageGallery({ title, subtitle, images }: ImageGalleryProps) {
   return (
-    <section className="w-full py-24 px-6 md:px-12 relative z-20">
+    <section className="w-full pt-8 pb-24 px-6 md:px-12 relative z-20">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-16 gap-8 text-center md:text-left">
           <motion.div 
@@ -37,18 +38,29 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
         </div>
 
         {/* Simple Standard Square Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className={`grid grid-cols-2 md:grid-cols-3 ${title.includes("Sun Pleated Pant Model") || title === "Practice Sarees" || title === "Skirt Model" || title === "Saree Convert Costumes" || title === "Customer Photos" || title === "Jewelry & Accessories" ? "" : "lg:grid-cols-4"} gap-4 md:gap-6`}>
           {images.map((item, i) => {
             const isTallCategory = title === "Long Gowns" || title === "Lehenga";
             const isWideCategory = title === "Family Combos" || title === "Siblings Combo";
+            const isSquareCategory = title.includes("Sun Pleated Pant Model") || title === "Practice Sarees" || title === "Skirt Model" || title === "Saree Convert Costumes" || title === "Customer Photos" || title === "Jewelry & Accessories";
             
             let aspectClass = "aspect-[4/5]";
             let objectPos = "object-top";
+            let objectFit = "object-cover";
             
             if (isTallCategory) {
               aspectClass = "aspect-[2/3]";
             } else if (isWideCategory) {
               aspectClass = "aspect-[4/3]";
+              objectPos = "object-center";
+            } else if (isSquareCategory) {
+              aspectClass = "aspect-square";
+              objectPos = "object-top";
+            }
+            
+            // Special rule for jewelry so images don't get cut off
+            if (title === "Jewelry & Accessories") {
+              objectFit = "object-contain";
               objectPos = "object-center";
             }
 
@@ -65,14 +77,15 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
                   src={item.src} 
                   alt={item.category} 
                   fill
-                  className={`object-cover ${objectPos} transition-transform duration-[2s] group-hover:scale-110`}
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className={`${objectFit} ${objectPos} transition-transform duration-[2s] group-hover:scale-110`}
                 />
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
                   <span className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/80 mb-2">
                     {item.category}
                   </span>
-                  <div className="w-12 h-[1px] bg-foreground/50"></div>
+                  <div className="w-12 h-[1px] bg-foreground/50 mt-4"></div>
                 </div>
               </motion.div>
             );

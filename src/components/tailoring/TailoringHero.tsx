@@ -70,7 +70,7 @@ export default function TailoringHero() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-          className="text-5xl md:text-7xl lg:text-8xl font-serif text-white font-bold drop-shadow-2xl mb-8"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif text-white font-bold drop-shadow-2xl mb-8 text-center"
         >
           Bespoke Tailoring
         </motion.h1>

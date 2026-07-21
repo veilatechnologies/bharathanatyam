@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export default function TailoringDescription() {
   const stitchingList = [
@@ -14,17 +15,19 @@ export default function TailoringDescription() {
   ];
 
   const menuCategories = [
-    { name: "Blouse Designs", link: "/tailoring/blouse-designs", icon: "✨" },
-    { name: "Ready-Made Blouses", link: "/tailoring/blouse-designs", icon: "✨" },
-    { name: "Aari Work Blouses", link: "/tailoring/blouse-designs", icon: "✨" },
-    { name: "Machine Embroidery", link: "/tailoring/machine-embroidery", icon: "✨" },
-    { name: "Pattu Pavadai", link: "/tailoring/pattu-pavadai", icon: "✨" },
-    { name: "Lehenga", link: "/tailoring/lehenga", icon: "✨" },
-    { name: "Mom & Daughter Combo", link: "/tailoring/mom-and-daughter-combo", icon: "✨" },
-    { name: "Siblings Combo", link: "/tailoring/siblings-combo", icon: "✨" },
-    { name: "Family Combos", link: "/tailoring/family-combos", icon: "✨" },
-    { name: "Long Gowns", link: "/tailoring/long-gowns", icon: "✨" },
-    { name: "Kids Gowns", link: "/tailoring/kids-gown", icon: "✨" },
+    { name: "Blouse Designs", link: "/tailoring/blouse-designs", icon: "👚" },
+    { name: "Ready-Made Blouses", link: "/tailoring/blouse-designs", icon: "🛍️" },
+    { name: "Aari Work Blouses", link: "/tailoring/blouse-designs", icon: "🪡" },
+    { name: "Machine Embroidery", link: "/tailoring/machine-embroidery", icon: "🧵" },
+    { name: "Pattu Pavadai", link: "/tailoring/pattu-pavadai", icon: "🎀" },
+    { name: "Lehenga", link: "/tailoring/lehenga", icon: "🏵️" },
+    { name: "Mom & Daughter Combo", link: "/tailoring/mom-and-daughter-combo", icon: "👩‍👧" },
+    { name: "Siblings Combo", link: "/tailoring/siblings-combo", icon: "👯‍♀️" },
+    { name: "Family Combos", link: "/tailoring/family-combos", icon: "👨‍👩‍👧‍👦" },
+    { name: "Long Gowns", link: "/tailoring/long-gowns", icon: "👗" },
+    { name: "Kids Gowns", link: "/tailoring/kids-gown", icon: "👧" },
+    { name: "Customer Photos", link: "/tailoring/customer-photos", icon: "📸" },
+    { name: "Customer Reviews", link: "/tailoring/customer-reviews", icon: "⭐" },
   ];
 
   return (
@@ -61,11 +64,18 @@ export default function TailoringDescription() {
             <h3 className="text-2xl font-serif text-center mb-10 text-foreground border-b border-foreground/10 pb-6 uppercase tracking-widest font-bold">Select a Category</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 gap-y-10">
               {menuCategories.map((cat, idx) => (
-                <Link key={idx} href={cat.link} className="flex items-center gap-6 group/link transition-transform hover:translate-x-2">
-                  <div className="w-14 h-14 rounded-full border border-foreground/20 flex items-center justify-center bg-foreground/5 shrink-0 group-hover/link:bg-foreground/10 transition-colors">
-                    <span className="text-2xl opacity-80 group-hover/link:opacity-100">{cat.icon}</span>
+                <Link 
+                  key={idx} 
+                  href={cat.link} 
+                  className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/link hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full border border-current/20 flex items-center justify-center shrink-0 bg-current/5 transition-colors">
+                      <span className="text-xl opacity-80 group-hover/link:opacity-100">{cat.icon}</span>
+                    </div>
+                    <p className="text-lg font-bold font-sans tracking-wide">{cat.name}</p>
                   </div>
-                  <p className="text-xl font-serif text-foreground font-medium group-hover/link:opacity-70 transition-opacity">{cat.name}</p>
+                  <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/link:opacity-100 group-hover/link:translate-x-0 transition-all duration-300" />
                 </Link>
               ))}
             </div>

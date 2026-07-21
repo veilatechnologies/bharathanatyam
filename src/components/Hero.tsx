@@ -79,7 +79,7 @@ export default function Hero() {
                 alt={activeSlide.subtitle} 
                 fill 
                 sizes="100vw"
-                className="object-cover object-[center_20%] transform transition-transform duration-[8s] hover:scale-110" 
+                className="object-cover object-top transform transition-transform duration-[8s] hover:scale-110" 
                 priority={safeIndex === 0}
               />
             </motion.div>
@@ -92,12 +92,12 @@ export default function Hero() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
-            className="text-4xl sm:text-6xl md:text-8xl lg:text-[110px] font-serif text-white tracking-[0.1em] font-bold drop-shadow-2xl uppercase whitespace-nowrap mb-6"
+            className="text-3xl min-[400px]:text-4xl sm:text-6xl md:text-8xl lg:text-[110px] font-serif text-white tracking-[0.1em] font-bold drop-shadow-2xl uppercase whitespace-normal sm:whitespace-nowrap mb-6"
           >
             Sri Sanjana
           </motion.h1>
 
-          <div className="h-12 overflow-hidden flex items-center justify-center">
+          <div className="h-12 overflow-hidden flex items-center justify-center w-full px-2">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentIndex}
@@ -105,13 +105,13 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.8 }}
-                className="flex items-center gap-4"
+                className="flex items-center gap-2 md:gap-4 justify-center"
               >
-                <div className="w-8 h-[1px] bg-gold/70"></div>
-                <span className="text-sm md:text-lg text-gold uppercase tracking-[0.4em] font-sans font-bold">
+                <div className="hidden sm:block w-4 md:w-8 h-[1px] bg-gold/70"></div>
+                <span className="text-xs md:text-lg text-gold uppercase tracking-[0.2em] md:tracking-[0.4em] font-sans font-bold text-center">
                   {activeSlide.subtitle}
                 </span>
-                <div className="w-8 h-[1px] bg-gold/70"></div>
+                <div className="hidden sm:block w-4 md:w-8 h-[1px] bg-gold/70"></div>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -131,7 +131,7 @@ export default function Hero() {
         </div>
       </section>
 
-      <section className="w-full py-12 px-8 relative z-10">
+      <section className="w-full py-12 px-4 sm:px-8 relative z-10 overflow-hidden">
         <motion.div 
           initial="hidden"
           whileInView="visible"
@@ -144,9 +144,9 @@ export default function Hero() {
               transition: { duration: 0.8, staggerChildren: 0.2 } 
             }
           }}
-          className="max-w-[1000px] mx-auto text-center glass-panel p-12 md:p-20 shadow-2xl"
+          className="max-w-[1000px] mx-auto text-center glass-panel p-6 sm:p-8 md:p-12 lg:p-20 shadow-2xl"
         >
-          <motion.div variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } } }} className="mb-6 flex items-center justify-center gap-4">
+          <motion.div variants={{ hidden: { opacity: 0, scale: 0.8 }, visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } } }} className="mb-6 flex flex-col sm:flex-row items-center justify-center gap-4">
             <span className="w-16 h-[3px] bg-foreground"></span>
             <span className="text-sm uppercase tracking-[0.3em] font-sans font-bold text-foreground drop-shadow-sm">Welcome to Sri Sanjana</span>
             <span className="w-16 h-[3px] bg-foreground"></span>
