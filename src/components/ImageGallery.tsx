@@ -38,30 +38,33 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
         </div>
 
         {/* Simple Standard Square Grid */}
-        <div className={`grid grid-cols-2 md:grid-cols-3 ${title.includes("Sun Pleated Pant Model") || title === "Practice Sarees" || title === "Skirt Model" || title === "Saree Convert Costumes" || title === "Customer Photos" || title === "Jewelry & Accessories" ? "" : "lg:grid-cols-4"} gap-4 md:gap-6`}>
+        <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6`}>
           {images.map((item, i) => {
             const isTallCategory = title === "Long Gowns" || title === "Lehenga";
             const isWideCategory = title === "Family Combos" || title === "Siblings Combo";
-            const isSquareCategory = title.includes("Sun Pleated Pant Model") || title === "Practice Sarees" || title === "Skirt Model" || title === "Saree Convert Costumes" || title === "Customer Photos" || title === "Jewelry & Accessories";
+            const isSquareCategory = title.includes("Sun Pleated Pant Model") || title === "Practice Sarees" || title === "Skirt Model" || title === "Saree Convert Costumes" || title === "Customer Photos";
             
             let aspectClass = "aspect-[4/5]";
-            let objectPos = "object-top";
+            let objectPos = "object-center";
             let objectFit = "object-cover";
+            let bgClass = "";
             
-            if (isTallCategory) {
+            if (title === "Ready-Made Blouses") {
+              aspectClass = "aspect-square";
+            } else if (title === "Customer Reviews") {
+              aspectClass = "aspect-[2/3]";
+              objectFit = "object-contain";
+              bgClass = "bg-black/40";
+            } else if (title === "Mehndi Designs" || title === "Saree Pre-Pleating" || title === "Aari Work Blouses" || title === "Machine Embroidery") {
+              aspectClass = "aspect-[4/5]";
+            } else if (title === "Jewelry & Accessories") {
+              aspectClass = "aspect-square";
+            } else if (isTallCategory) {
               aspectClass = "aspect-[2/3]";
             } else if (isWideCategory) {
-              aspectClass = "aspect-[4/3]";
-              objectPos = "object-center";
+              aspectClass = "aspect-square";
             } else if (isSquareCategory) {
               aspectClass = "aspect-square";
-              objectPos = "object-top";
-            }
-            
-            // Special rule for jewelry so images don't get cut off
-            if (title === "Jewelry & Accessories") {
-              objectFit = "object-contain";
-              objectPos = "object-center";
             }
 
             return (
@@ -71,12 +74,14 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className={`relative group overflow-hidden ${aspectClass} border border-foreground/10`}
+                className={`relative group overflow-hidden ${aspectClass} ${bgClass} border border-foreground/10 rounded-xl`}
               >
                 <Image 
                   src={item.src} 
                   alt={item.category} 
                   fill
+                  quality={100}
+                  unoptimized={true}
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className={`${objectFit} ${objectPos} transition-transform duration-[2s] group-hover:scale-110`}
                 />

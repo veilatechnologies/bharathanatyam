@@ -71,25 +71,7 @@ export default function BeautyDescription() {
                 <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
               </Link>
 
-              <Link href="/beauty/temporary-tattoos" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full border border-current/30 flex items-center justify-center bg-current/5 shrink-0 transition-colors">
-                    <span className="text-2xl group-hover/item:scale-110 transition-transform">🦋</span>
-                  </div>
-                  <p className="text-xl md:text-2xl font-serif font-medium">Temporary Tattoos for Girls</p>
-                </div>
-                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
-              </Link>
 
-              <Link href="/beauty/customer-photos" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full border border-current/30 flex items-center justify-center bg-current/5 shrink-0 transition-colors">
-                    <span className="text-2xl group-hover/item:scale-110 transition-transform">📸</span>
-                  </div>
-                  <p className="text-xl md:text-2xl font-serif font-medium">Customer Photos</p>
-                </div>
-                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-4 group-hover/item:opacity-100 group-hover/item:translate-x-0 transition-all duration-300" />
-              </Link>
 
               <Link href="/beauty/customer-reviews" className="flex items-center justify-between p-4 rounded-xl hover:bg-foreground hover:text-white transition-all duration-300 group/item hover:scale-[1.02] hover:shadow-lg border border-transparent hover:border-foreground/20">
                 <div className="flex items-center gap-4">

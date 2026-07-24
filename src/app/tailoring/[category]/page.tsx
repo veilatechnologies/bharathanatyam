@@ -37,6 +37,22 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           subtitle={categoryData.subtitle} 
           images={categoryData.images} 
         />
+
+        {/* Contact CTA */}
+        <div className="mt-32 text-center border-t border-foreground/10 pt-20 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-serif text-foreground font-bold mb-6">
+            Interested in this design?
+          </h2>
+          <p className="text-foreground/70 font-sans mb-8">
+            Contact us today to inquire about custom stitching, alterations, and pricing.
+          </p>
+          <a 
+            href="/#contact" 
+            className="inline-flex items-center justify-center bg-foreground text-white px-10 py-4 text-xs font-bold uppercase tracking-[0.2em] hover:bg-transparent hover:text-foreground border border-foreground transition-colors duration-300 rounded-lg shadow-xl"
+          >
+            Inquire Now
+          </a>
+        </div>
       </div>
 
       <Footer />

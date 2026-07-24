@@ -16,11 +16,12 @@ export default function TailoringDescription() {
 
   const menuCategories = [
     { name: "Blouse Designs", link: "/tailoring/blouse-designs", icon: "👚" },
-    { name: "Ready-Made Blouses", link: "/tailoring/blouse-designs", icon: "🛍️" },
-    { name: "Aari Work Blouses", link: "/tailoring/blouse-designs", icon: "🪡" },
+    { name: "Ready-Made Blouses", link: "/tailoring/ready-made-blouses", icon: "🛍️" },
+    { name: "Aari Work Blouses", link: "/tailoring/aari-work-blouses", icon: "🪡" },
     { name: "Machine Embroidery", link: "/tailoring/machine-embroidery", icon: "🧵" },
     { name: "Pattu Pavadai", link: "/tailoring/pattu-pavadai", icon: "🎀" },
     { name: "Lehenga", link: "/tailoring/lehenga", icon: "🏵️" },
+    { name: "Customized Chudi Sets", link: "/tailoring/customized-chudi-sets", icon: "✨" },
     { name: "Mom & Daughter Combo", link: "/tailoring/mom-and-daughter-combo", icon: "👩‍👧" },
     { name: "Siblings Combo", link: "/tailoring/siblings-combo", icon: "👯‍♀️" },
     { name: "Family Combos", link: "/tailoring/family-combos", icon: "👨‍👩‍👧‍👦" },

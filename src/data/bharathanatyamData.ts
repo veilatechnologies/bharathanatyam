@@ -88,41 +88,48 @@ export const sareeConvertCostumesImages: GalleryItem[] = [
 ];
 
 export const bharathanatyamCustomerPhotosImages: GalleryItem[] = [
-  { id: 1, src: "/assets/bharathanatyam_customer_photos/bc1.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 2, src: "/assets/bharathanatyam_customer_photos/bc2.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 3, src: "/assets/bharathanatyam_customer_photos/bc3.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 4, src: "/assets/bharathanatyam_customer_photos/bc4.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 5, src: "/assets/bharathanatyam_customer_photos/bc5.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 6, src: "/assets/bharathanatyam_customer_photos/bc6.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 7, src: "/assets/bharathanatyam_customer_photos/bc7.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 8, src: "/assets/bharathanatyam_customer_photos/bc8.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 9, src: "/assets/bharathanatyam_customer_photos/bc9.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 10, src: "/assets/bharathanatyam_customer_photos/bc10.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 11, src: "/assets/bharathanatyam_customer_photos/bc11.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 12, src: "/assets/bharathanatyam_customer_photos/bc12.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 13, src: "/assets/bharathanatyam_customer_photos/bc13.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 14, src: "/assets/bharathanatyam_customer_photos/bc14.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 15, src: "/assets/bharathanatyam_customer_photos/bc15.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 16, src: "/assets/bharathanatyam_customer_photos/bc16.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 17, src: "/assets/bharathanatyam_customer_photos/bc17.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 18, src: "/assets/bharathanatyam_customer_photos/bc18.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 19, src: "/assets/bharathanatyam_customer_photos/bc19.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 20, src: "/assets/bharathanatyam_customer_photos/bc20.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 21, src: "/assets/bharathanatyam_customer_photos/bc21.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 22, src: "/assets/bharathanatyam_customer_photos/bc22.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 23, src: "/assets/bharathanatyam_customer_photos/bc23.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 24, src: "/assets/bharathanatyam_customer_photos/bc24.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 25, src: "/assets/bharathanatyam_customer_photos/bc25.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 26, src: "/assets/bharathanatyam_customer_photos/bc26.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 27, src: "/assets/bharathanatyam_customer_photos/bc27.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 28, src: "/assets/bharathanatyam_customer_photos/bc28.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 29, src: "/assets/bharathanatyam_customer_photos/bc29.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 30, src: "/assets/bharathanatyam_customer_photos/bc30.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 31, src: "/assets/bharathanatyam_customer_photos/bc31.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 32, src: "/assets/bharathanatyam_customer_photos/bc32.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 33, src: "/assets/bharathanatyam_customer_photos/bc33.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 34, src: "/assets/bharathanatyam_customer_photos/bc34.jpeg", category: "Customer Photos", size: "tall" },
-  { id: 35, src: "/assets/bharathanatyam_customer_photos/bc35.jpeg", category: "Customer Photos", size: "tall" },
+  { id: 1, src: '/assets/bharathanatyam_customer_photos/bcp1.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 2, src: '/assets/bharathanatyam_customer_photos/bcp2.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 3, src: '/assets/bharathanatyam_customer_photos/bcp3.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 4, src: '/assets/bharathanatyam_customer_photos/bcp4.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 5, src: '/assets/bharathanatyam_customer_photos/bcp5.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 6, src: '/assets/bharathanatyam_customer_photos/bcp6.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 7, src: '/assets/bharathanatyam_customer_photos/bcp7.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 8, src: '/assets/bharathanatyam_customer_photos/bcp8.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 9, src: '/assets/bharathanatyam_customer_photos/bcp9.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 10, src: '/assets/bharathanatyam_customer_photos/bcp10.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 11, src: '/assets/bharathanatyam_customer_photos/bcp11.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 12, src: '/assets/bharathanatyam_customer_photos/bcp12.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 13, src: '/assets/bharathanatyam_customer_photos/bcp13.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 14, src: '/assets/bharathanatyam_customer_photos/bcp14.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 15, src: '/assets/bharathanatyam_customer_photos/bcp15.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 16, src: '/assets/bharathanatyam_customer_photos/bcp16.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 17, src: '/assets/bharathanatyam_customer_photos/bcp17.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 18, src: '/assets/bharathanatyam_customer_photos/bcp18.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 19, src: '/assets/bharathanatyam_customer_photos/bcp19.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 20, src: '/assets/bharathanatyam_customer_photos/bcp20.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 21, src: '/assets/bharathanatyam_customer_photos/bcp21.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 22, src: '/assets/bharathanatyam_customer_photos/bcp22.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 23, src: '/assets/bharathanatyam_customer_photos/bcp23.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 24, src: '/assets/bharathanatyam_customer_photos/bcp24.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 25, src: '/assets/bharathanatyam_customer_photos/bcp25.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 26, src: '/assets/bharathanatyam_customer_photos/bcp26.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 27, src: '/assets/bharathanatyam_customer_photos/bcp27.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 28, src: '/assets/bharathanatyam_customer_photos/bcp28.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 29, src: '/assets/bharathanatyam_customer_photos/bcp29.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 30, src: '/assets/bharathanatyam_customer_photos/bcp30.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 31, src: '/assets/bharathanatyam_customer_photos/bcp31.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 32, src: '/assets/bharathanatyam_customer_photos/bcp32.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 33, src: '/assets/bharathanatyam_customer_photos/bcp33.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 34, src: '/assets/bharathanatyam_customer_photos/bcp34.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 35, src: '/assets/bharathanatyam_customer_photos/bcp35.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 36, src: '/assets/bharathanatyam_customer_photos/bcp36.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 37, src: '/assets/bharathanatyam_customer_photos/bcp37.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 38, src: '/assets/bharathanatyam_customer_photos/bcp38.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 39, src: '/assets/bharathanatyam_customer_photos/bcp39.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 40, src: '/assets/bharathanatyam_customer_photos/bcp40.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 41, src: '/assets/bharathanatyam_customer_photos/bcp41.jpeg', category: 'Customer Photos', size: 'tall' },
+  { id: 42, src: '/assets/bharathanatyam_customer_photos/bcp42.jpeg', category: 'Customer Photos', size: 'tall' },
 ];
 
 export const bharathanatyamJewelryImages: GalleryItem[] = [
@@ -137,6 +144,13 @@ export const bharathanatyamJewelryImages: GalleryItem[] = [
   { id: 9, src: "/assets/bharathanatyam_jewelery and accessories/j9.jpeg", category: "Jewelry & Accessories", size: "tall" },
   { id: 10, src: "/assets/bharathanatyam_jewelery and accessories/j10.jpeg", category: "Jewelry & Accessories", size: "tall" },
 ];
+
+export const bharathanatyamCustomerReviewsImages: GalleryItem[] = Array.from({ length: 10 }, (_, i) => ({
+  id: i + 1,
+  src: `/assets/bharathanatyam_customer_reviews/cr${i + 1}.jpeg`,
+  category: "Customer Reviews",
+  size: "tall"
+}));
 
 export const bharathanatyamCategories = [
   {
@@ -206,7 +220,7 @@ export const bharathanatyamCategories = [
     id: "customer-reviews",
     title: "Customer Reviews",
     subtitle: "What our clients say",
-    cover: "/assets/placeholder.jpg",
-    images: []
+    cover: bharathanatyamCustomerReviewsImages[0]?.src,
+    images: bharathanatyamCustomerReviewsImages
   }
 ];
