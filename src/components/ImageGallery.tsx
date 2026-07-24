@@ -80,8 +80,7 @@ export default function ImageGallery({ title, subtitle, images }: ImageGalleryPr
                   src={item.src} 
                   alt={item.category} 
                   fill
-                  quality={100}
-                  unoptimized={true}
+                  priority={i < 8}
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className={`${objectFit} ${objectPos} transition-transform duration-[2s] group-hover:scale-110`}
                 />
